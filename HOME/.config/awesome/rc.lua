@@ -98,7 +98,8 @@ awful.layout.layouts = {
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
-   { "configure", editor_cmd .. " " .. awesome.conffile },
+   { "config", editor_cmd .. " " .. awesome.conffile },
+   { "theme", editor_cmd .. " " .. theme_path },
    { "reload", awesome.restart },
    { "logout", function() awesome.quit() end },
    { "reboot", function () awful.spawn.with_shell("systemctl reboot") end },
