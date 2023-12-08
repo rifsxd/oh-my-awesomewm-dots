@@ -38,7 +38,7 @@ theme.hotkeys_border_width = theme.border_width
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
 -- borders and gaps
-theme.useless_gap   = 20
+theme.useless_gap   = 15
 theme.border_width  = 2
 
 -- taglist
@@ -52,7 +52,7 @@ theme.tasklist_disable_icon = true
 -- menu
 theme.menu_submenu_icon = theme.wd .. "icons/submenu.png"
 theme.menu_height = dpi(30)
-theme.menu_width  = dpi(190)
+theme.menu_width  = dpi(180)
 
 -- layouts icons
 theme.layout_fairh = theme.wd .. "layouts/fairh.png"
