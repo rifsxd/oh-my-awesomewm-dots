@@ -105,6 +105,18 @@ myawesomemenu = {
    { "poweroff", function () awful.spawn.with_shell("systemctl poweroff") end },
 }
 
+mymiscmenu = {
+   { "compositor on", function () awful.spawn.with_shell("picom") end },
+   { "compositor off", function () awful.spawn.with_shell("killall picom") end },
+}
+
+myscreenshotmenu = {
+   { "srcnshot full", scrot_full },
+   { "srcnshot sel", scrot_selection },
+   { "srcnshot win", scrot_window },
+   { "srcnshot delay", scrot_delay },
+}
+
 mygamingmenu = {
    { "lutris", function () awful.spawn("lutris") end },
    { "steam", function () awful.spawn("steam") end },
@@ -115,7 +127,9 @@ mysocialmenu = {
    { "spotify", function () awful.spawn("spotify") end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
+				    { "misc", mymiscmenu },
+				    { "screenshot", myscreenshotmenu },
 				    { "social", mysocialmenu },
 				    { "gaming", mygamingmenu },
 				    { "open terminal", terminal },
@@ -199,7 +213,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "一", "二", "三", "四", "五", "六", "七", "八", "九" }, s, awful.layout.layouts[1])
+    awful.tag({ "一", "二", "三", "四", "五", "六", "七", "八", "九" }, s, awful.layout.suit.tile)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()

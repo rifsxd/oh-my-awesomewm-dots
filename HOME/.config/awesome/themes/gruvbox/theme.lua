@@ -1,13 +1,15 @@
 -- Init theme, return it at the end
 local theme = {}
+local rnotification = require("ruled.notification")
+local dpi = require("beautiful.xresources").apply_dpi
 
 -- Theme working directory
 theme.wd = "~/.config/awesome/themes/gruvbox/"
 
 -- wallpaper
-theme.wallpaper = theme.wd .. "background.png"
+theme.wallpaper = theme.wd .. "wallpapers/background.png"
 -- awesome icon
-theme.awesome_icon = theme.wd .. "awesome.png"
+theme.awesome_icon = theme.wd .. "icons/awesome.png"
 
 -- fonts
 theme.base_font     = "JetBrainsMono Nerd Font 10"
@@ -48,9 +50,9 @@ theme.taglist_font = theme.taglist_font
 theme.tasklist_disable_icon = true
 
 -- menu
-theme.menu_submenu_icon = theme.wd .. "submenu.png"
-theme.menu_height = 30
-theme.menu_width  = 160
+theme.menu_submenu_icon = theme.wd .. "icons/submenu.png"
+theme.menu_height = dpi(30)
+theme.menu_width  = dpi(190)
 
 -- layouts icons
 theme.layout_fairh = theme.wd .. "layouts/fairh.png"
@@ -90,13 +92,13 @@ theme.yawl_pomodoro_break    = "#689d6a"
 theme.yawl_pomodoro_paused   = "#cc241d"
 
 -- {{{ Titlebar
-theme.titlebar_close_button_focus  = theme.wd .. "titlebar/close_focus.png"
+theme.titlebar_close_button_focus  = theme.wd .. "titlebars/close_focus.png"
 theme.titlebar_close_button_normal = theme.wd .. "titlebar/close_normal.png"
 
-theme.titlebar_ontop_button_focus_active  = theme.wd .. "titlebar/ontop_focus_active.png"
-theme.titlebar_ontop_button_normal_active = theme.wd .. "titlebar/ontop_normal_active.png"
-theme.titlebar_ontop_button_focus_inactive  = theme.wd .. "titlebar/ontop_focus_inactive.png"
-theme.titlebar_ontop_button_normal_inactive = theme.wd .. "titlebar/ontop_normal_inactive.png"
+theme.titlebar_ontop_button_focus_active  = theme.wd .. "titlebars/ontop_focus_active.png"
+theme.titlebar_ontop_button_normal_active = theme.wd .. "titlebars/ontop_normal_active.png"
+theme.titlebar_ontop_button_focus_inactive  = theme.wd .. "titlebars/ontop_focus_inactive.png"
+theme.titlebar_ontop_button_normal_inactive = theme.wd .. "titlebars/ontop_normal_inactive.png"
 
 --theme.titlebar_sticky_button_focus_active  = theme.wd .. "titlebar/sticky_focus_active.png"
 --theme.titlebar_sticky_button_normal_active = theme.wd .. "titlebar/sticky_normal_active.png"
@@ -108,11 +110,19 @@ theme.titlebar_ontop_button_normal_inactive = theme.wd .. "titlebar/ontop_normal
 --theme.titlebar_floating_button_focus_inactive  = theme.wd .. "titlebar/floating_focus_inactive.png"
 --theme.titlebar_floating_button_normal_inactive = theme.wd .. "titlebar/floating_normal_inactive.png"
 
-theme.titlebar_maximized_button_focus_active  = theme.wd .. "titlebar/maximized_focus_active.png"
-theme.titlebar_maximized_button_normal_active = theme.wd .. "titlebar/maximized_normal_active.png"
-theme.titlebar_maximized_button_focus_inactive  = theme.wd .. "titlebar/maximized_focus_inactive.png"
-theme.titlebar_maximized_button_normal_inactive = theme.wd .. "titlebar/maximized_normal_inactive.png"
+theme.titlebar_maximized_button_focus_active  = theme.wd .. "titlebars/maximized_focus_active.png"
+theme.titlebar_maximized_button_normal_active = theme.wd .. "titlebars/maximized_normal_active.png"
+theme.titlebar_maximized_button_focus_inactive  = theme.wd .. "titlebars/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_normal_inactive = theme.wd .. "titlebars/maximized_normal_inactive.png"
 -- }}}
+
+-- Set different colors for urgent notifications.
+rnotification.connect_signal('request::rules', function()
+    rnotification.append_rule {
+        rule       = { urgency = 'critical' },
+        properties = { bg = '#cc241d', fg = '#ebdbb2' }
+    }
+end)
 
 -- Naughty
 theme.naughty_bg_urgent = theme.fg_urgent
