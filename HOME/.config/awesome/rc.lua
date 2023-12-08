@@ -132,9 +132,23 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
 				    { "screenshot", myscreenshotmenu },
 				    { "social", mysocialmenu },
 				    { "gaming", mygamingmenu },
+				    { "run promt", function () menubar.show() end },
 				    { "open terminal", terminal },
 				    { "open browser", browser },
 				    { "open files", filemanager },
+				    { "open vscode", "code" }
+                                  }
+				})
+
+mymainmenulite = awful.menu({ items = { { "awesome", myawesomemenu },
+				    { "misc", mymiscmenu },
+				    --{ "screenshot", myscreenshotmenu },
+				    --{ "social", mysocialmenu },
+				    --{ "gaming", mygamingmenu },
+				    { "run promt", function () menubar.show() end },
+				    { "open terminal", terminal },
+				    --{ "open browser", browser },
+				    --{ "open files", filemanager },
 				    { "open vscode", "code" }
                                   }
 				})
