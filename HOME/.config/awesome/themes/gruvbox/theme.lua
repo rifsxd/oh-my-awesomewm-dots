@@ -36,8 +36,8 @@ theme.hotkeys_border_width = theme.border_width
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
 -- borders and gaps
-theme.useless_gap   = 4
-theme.border_width  = 4
+theme.useless_gap   = 20
+theme.border_width  = 2
 
 -- taglist
 theme.taglist_squares_sel   = theme.wd .. "tags/focus.png"
@@ -49,7 +49,7 @@ theme.tasklist_disable_icon = true
 
 -- menu
 theme.menu_submenu_icon = theme.wd .. "submenu.png"
-theme.menu_height = 22
+theme.menu_height = 30
 theme.menu_width  = 160
 
 -- layouts icons
