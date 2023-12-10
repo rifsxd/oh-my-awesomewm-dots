@@ -93,7 +93,7 @@ theme.yawl_pomodoro_paused   = "#cc241d"
 
 -- {{{ Titlebar
 theme.titlebar_close_button_focus  = theme.wd .. "titlebars/close_focus.png"
-theme.titlebar_close_button_normal = theme.wd .. "titlebar/close_normal.png"
+theme.titlebar_close_button_normal = theme.wd .. "titlebars/close_normal.png"
 
 theme.titlebar_ontop_button_focus_active  = theme.wd .. "titlebars/ontop_focus_active.png"
 theme.titlebar_ontop_button_normal_active = theme.wd .. "titlebars/ontop_normal_active.png"

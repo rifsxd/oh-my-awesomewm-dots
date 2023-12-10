@@ -256,7 +256,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
-    mynewwibox = awful.wibar({ position = "bottom", screen = s })
+    s.mynewwibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -288,7 +288,7 @@ awful.screen.connect_for_each_screen(function(s)
 	    spacing = 10,
         },
     }
-    mynewwibox:setup {
+    s.mynewwibox:setup {
         layout = wibox.layout.align.horizontal,
 	-- expand = "none",
 	{ -- left widget
@@ -312,6 +312,12 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ modkey }, "v", function () awful.spawn("pavucontrol") end,
+	  {description = "open audio mixer", group = "launcher"}),
+    awful.key({ modkey }, "-", function () myscreen = awful.screen.focused() myscreen.mywibox.visible = not myscreen.mywibox.visible end,
+	  {description = "toggle statusbar top", group = "awesome"}),
+    awful.key({ modkey }, "=", function () myscreen = awful.screen.focused() myscreen.mynewwibox.visible = not myscreen.mynewwibox.visible end,
+	  {description = "toggle statusbar bottom", group = "awesome"}),
     awful.key({ }, "Print", scrot_full,
           {description = "Take a screenshot of entire screen", group = "screenshot"}),
     awful.key({ modkey, }, "Print", scrot_selection,
