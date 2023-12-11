@@ -1,6 +1,5 @@
 -- Init theme, return it at the end
 local theme = {}
-local rnotification = require("ruled.notification")
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Theme working directory
@@ -38,7 +37,7 @@ theme.hotkeys_border_width = theme.border_width
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
 -- borders and gaps
-theme.useless_gap   = 15
+theme.useless_gap   = 22
 theme.border_width  = 2
 
 -- taglist
@@ -116,15 +115,8 @@ theme.titlebar_maximized_button_focus_inactive  = theme.wd .. "titlebars/maximiz
 theme.titlebar_maximized_button_normal_inactive = theme.wd .. "titlebars/maximized_normal_inactive.png"
 -- }}}
 
--- Set different colors for urgent notifications.
-rnotification.connect_signal('request::rules', function()
-    rnotification.append_rule {
-        rule       = { urgency = 'critical' },
-        properties = { bg = '#cc241d', fg = '#ebdbb2' }
-    }
-end)
-
 -- Naughty
 theme.naughty_bg_urgent = theme.fg_urgent
+theme.naughty_fg_urgent = theme.fg_normal
 
 return theme
