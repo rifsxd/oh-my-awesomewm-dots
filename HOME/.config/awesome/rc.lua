@@ -16,6 +16,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local net_widgets = require("net_widgets")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -223,6 +224,11 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+net_wired = net_widgets.indicator({
+    interfaces  = {"enp5s0"},
+    timeout     = 5
+})
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -271,20 +277,21 @@ awful.screen.connect_for_each_screen(function(s)
         },
         -- s.mytasklist, -- Middle widget
 	{ -- Middle widget
-        layout = wibox.layout.fixed.horizontal,
-	spotify_widget({
-           font = 'JetBrainsMono Nerd Font 10',
-           }),
+            layout = wibox.layout.fixed.horizontal,
+	    spotify_widget({
+               font = 'JetBrainsMono Nerd Font 10',
+            }),
         },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             -- mykeyboardlayout,
 	    wibox.widget.systray(),
-	    mytextclock,
-	    volume_widget{
-            	widget_type = 'horizontal_bar'
+      	    net_wired,
+            volume_widget{
+            widget_type = 'horizontal_bar'
 	    },
-            s.mylayoutbox,
+	    mytextclock, 
+      s.mylayoutbox,
 	    spacing = 10,
         },
     }
