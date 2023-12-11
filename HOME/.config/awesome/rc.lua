@@ -59,7 +59,7 @@ local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.ge
 beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "kitty"
 filemanager = "thunar"
 browser = "google-chrome-stable"
 editor = os.getenv("EDITOR") or "mousepad"
