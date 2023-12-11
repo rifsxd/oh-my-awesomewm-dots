@@ -99,6 +99,10 @@ theme.titlebar_ontop_button_normal_active = theme.wd .. "titlebars/ontop_normal_
 theme.titlebar_ontop_button_focus_inactive  = theme.wd .. "titlebars/ontop_focus_inactive.png"
 theme.titlebar_ontop_button_normal_inactive = theme.wd .. "titlebars/ontop_normal_inactive.png"
 
+theme.titlebar_minimize_button_focus = theme.wd .. "titlebars/minimize_focus.png"
+theme.titlebar_minimize_button_normal = theme.wd .. "titlebars/minimize_normal.png"
+
+
 --theme.titlebar_sticky_button_focus_active  = theme.wd .. "titlebar/sticky_focus_active.png"
 --theme.titlebar_sticky_button_normal_active = theme.wd .. "titlebar/sticky_normal_active.png"
 --theme.titlebar_sticky_button_focus_inactive  = theme.wd .. "titlebar/sticky_focus_inactive.png"
