@@ -314,9 +314,9 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey }, "v", function () awful.spawn("pavucontrol") end,
 	  {description = "open audio mixer", group = "launcher"}),
-    awful.key({ modkey }, "-", function () myscreen = awful.screen.focused() myscreen.mywibox.visible = not myscreen.mywibox.visible end,
+    awful.key({ modkey }, "=", function () myscreen = awful.screen.focused() myscreen.mywibox.visible = not myscreen.mywibox.visible end,
 	  {description = "toggle statusbar top", group = "awesome"}),
-    awful.key({ modkey }, "=", function () myscreen = awful.screen.focused() myscreen.mynewwibox.visible = not myscreen.mynewwibox.visible end,
+    awful.key({ modkey }, "-", function () myscreen = awful.screen.focused() myscreen.mynewwibox.visible = not myscreen.mynewwibox.visible end,
 	  {description = "toggle statusbar bottom", group = "awesome"}),
     awful.key({ }, "Print", scrot_full,
           {description = "Take a screenshot of entire screen", group = "screenshot"}),
@@ -332,7 +332,7 @@ globalkeys = gears.table.join(
               {description="turn on compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall picom") end,
               {description="turn off compositor", group="launcher"}),
-    awful.key({ modkey,           }, "Escape", function () awful.spawn.with_shell("betterlockscreen -l blur") end,
+    awful.key({ modkey, "Shift"   }, "Escape", function () awful.spawn.with_shell("betterlockscreen -l blur") end,
               {description="lock the screen", group="launcher"}),
 
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pipewire sset Master 5%+", false) end),

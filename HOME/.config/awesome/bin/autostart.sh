@@ -3,7 +3,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom polkit-gnome-authentication-agent-1 blazefetch)
+_ps=(picom polkit-gnome-authentication-agent-1 blazefetch unclutter)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall ${_prs}
@@ -18,3 +18,5 @@ picom &
 
 # BLazefetch daemon
 blazefetch -d
+
+unclutter --start-hidden &
