@@ -16,12 +16,12 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local volume_widget = require("widgets.volume")
 local spotify_widget = require("widgets.spotify")
-local net_widgets = require("widgets.net")
+local net_widget = require("widgets.net")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 local xresources = require("beautiful.xresources")
-local screenshot = require("screenshot")
+local screenshot = require("modules.screenshot")
 local dpi = xresources.apply_dpi
 
 -- {{{ Error handling
@@ -224,7 +224,7 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-net_wired = net_widgets.indicator({
+net_wired = net_widget.indicator({
     interfaces  = {"enp5s0"},
     timeout     = 5
 })
