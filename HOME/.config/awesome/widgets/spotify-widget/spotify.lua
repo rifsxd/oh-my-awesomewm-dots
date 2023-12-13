@@ -28,8 +28,8 @@ local function worker(user_args)
 
     local args = user_args or {}
 
-    local play_icon = args.play_icon or '/usr/share/icons/Arc/actions/24/player_play.png'
-    local pause_icon = args.pause_icon or '/usr/share/icons/Arc/actions/24/player_pause.png'
+    local play_icon = args.play_icon or string.format("%s/.config/awesome/widgets/spotify-widget/icons/play.png", os.getenv("HOME"))
+    local pause_icon = args.pause_icon or string.format("%s/.config/awesome/widgets/spotify-widget/icons/pause.png", os.getenv("HOME"))
     local font = args.font or 'JetBrainsMono Nerd Font 10'
     local dim_when_paused = args.dim_when_paused == nil and false or args.dim_when_paused
     local dim_opacity = args.dim_opacity or 0.2

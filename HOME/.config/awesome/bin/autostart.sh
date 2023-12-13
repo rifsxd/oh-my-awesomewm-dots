@@ -3,15 +3,15 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom polkit-gnome-authentication-agent-1 blazefetch unclutter)
+_ps=(compfy polkit-gnome-authentication-agent-1 blazefetch unclutter)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall ${_prs}
 	fi
 done
 
-# Picom compositor
-picom &
+# Compfy compositor
+compfy &
 
 # Gnome polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

@@ -4,15 +4,15 @@ local naughty = require("naughty")
 screenshot = os.getenv("HOME") .. "/Pictures/screenshots/$(date +%F_%T).png"
 
 function scrot_full()
-    scrot("scrot " .. screenshot, "Took a screenshot of the entire screen")
+    scrot("scrot " .. screenshot .. " -e 'xclip -selection c -t image/png < $f'", "Took a screenshot of the entire screen")
 end
 
 function scrot_selection()
-    scrot("sleep 0.5 && scrot -s " .. screenshot, "Took a screenshot of the selection")
+    scrot("sleep 0.5 && scrot -s " .. screenshot .. " -e 'xclip -selection c -t image/png < $f'", "Took a screenshot of the selection")
 end
 
 function scrot_window()
-    scrot("scrot -u " .. screenshot, "Took a screenshot of the focused window")
+    scrot("scrot -u " .. screenshot .. " -e 'xclip -selection c -t image/png < $f'", "Took a screenshot of the focused window")
 end
 
 function scrot_delay()

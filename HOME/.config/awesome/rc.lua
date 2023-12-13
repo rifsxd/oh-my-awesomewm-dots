@@ -14,9 +14,9 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
-local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
-local net_widgets = require("net_widgets")
+local volume_widget = require("widgets.volume-widget.volume")
+local spotify_widget = require("widgets.spotify-widget.spotify")
+local net_widgets = require("widgets.net-widgets.net")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -62,7 +62,7 @@ beautiful.init(theme_path)
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
 filemanager = "thunar"
-browser = "google-chrome-stable"
+browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -183,8 +183,8 @@ local taglist_buttons = gears.table.join(
                                                   client.focus:toggle_tag(t)
                                               end
                                           end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+                    awful.button({ }, 5, function(t) awful.tag.viewnext(t.screen) end),
+                    awful.button({ }, 4, function(t) awful.tag.viewprev(t.screen) end)
                 )
 
 local tasklist_buttons = gears.table.join(
@@ -312,8 +312,8 @@ end)
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 5, awful.tag.viewnext),
+    awful.button({ }, 4, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -335,9 +335,9 @@ globalkeys = gears.table.join(
           {description = "Take a screenshot of delay", group = "screenshot"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn("gpick -p") end,
               {description = "open a color picker", group = "launcher"}),
-    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("picom") end,
+    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("compfy") end,
               {description="turn on compositor", group="launcher"}),
-    awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall picom") end,
+    awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall compfy") end,
               {description="turn off compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "Escape", function () awful.spawn.with_shell("betterlockscreen -l blur") end,
               {description="lock the screen", group="launcher"}),
@@ -464,6 +464,8 @@ clientkeys = gears.table.join(
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
+	    myscreen = awful.screen.focused() myscreen.mywibox.visible = not myscreen.mywibox.visible
+	    myscreen = awful.screen.focused() myscreen.mynewwibox.visible = not myscreen.mynewwibox.visible
         end,
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "c",      function (c) c:kill()                         end,
