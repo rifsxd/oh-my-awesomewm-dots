@@ -59,6 +59,8 @@ local chosen_theme = "gruvbox"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
+local compfy_path = string.format("%s/.config/compfy/compfy.conf", os.getenv("HOME"))
+
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
 filemanager = "thunar"
@@ -108,15 +110,16 @@ myawesomemenu = {
 }
 
 mymiscmenu = {
-   { "compositor on", function () awful.spawn.with_shell("picom") end },
-   { "compositor off", function () awful.spawn.with_shell("killall picom") end },
+   { "compositor on", function () awful.spawn.with_shell("compfy") end },
+   { "compositor off", function () awful.spawn.with_shell("killall compfy") end },
+   { "compositor config", editor_cmd .. " " .. compfy_path },
 }
 
 myscreenshotmenu = {
-   { "srcnshot full", scrot_full },
-   { "srcnshot sel", scrot_selection },
-   { "srcnshot win", scrot_window },
-   { "srcnshot delay", scrot_delay },
+   { "scrnshot full", scrot_full },
+   { "scrnshot sel", scrot_selection },
+   { "scrnshot win", scrot_window },
+   { "scrnshot delay", scrot_delay },
 }
 
 mygamingmenu = {
@@ -142,18 +145,15 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
                                   }
 				})
 
-mymainmenulite = awful.menu({ items = { { "awesome", myawesomemenu },
-				    { "misc", mymiscmenu },
-				    --{ "screenshot", myscreenshotmenu },
-				    --{ "social", mysocialmenu },
-				    --{ "gaming", mygamingmenu },
-				    { "run promt", function () menubar.show() end },
-				    { "open terminal", terminal },
-				    --{ "open browser", browser },
-				    --{ "open files", filemanager },
-				    { "open vscode", "code" }
-                                  }
-				})
+mymiscmenu = {
+   { "reload", awesome.restart },
+   { "logout", function() awesome.quit() end },
+   { "reboot", function () awful.spawn.with_shell("systemctl reboot") end },
+   { "poweroff", function () awful.spawn.with_shell("systemctl poweroff") end },
+}
+
+
+myrebootmenu = awful.menu({ items = mymiscmenu })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -374,7 +374,10 @@ globalkeys = gears.table.join(
     ),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
-
+    
+    awful.key({ modkey,           }, "x", function () myrebootmenu:show() end,
+              {description = "show main menu", group = "awesome"}),
+    
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
@@ -444,7 +447,7 @@ globalkeys = gears.table.join(
     -- awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
              -- {description = "run prompt", group = "launcher"}),
 
-    awful.key({ modkey }, "x",
+    awful.key({ modkey,  "Shift"  }, "r",
               function ()
                   awful.prompt.run {
                     prompt       = "Run Lua code: ",
