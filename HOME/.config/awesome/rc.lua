@@ -2,6 +2,10 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+package.path = package.path .. ";/home/rifsxd/.config/awesome/modules/?.lua;/home/rifsxd/.config/awesome/modules/?/init.lua;/home/rifsxd/.config/awesome/widgets/?.lua;/home/rifsxd/.config/awesome/widgets/?/init.lua"
+
+local lain = require("lain")
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -14,14 +18,15 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local volume_widget = require("widgets.volume")
-local spotify_widget = require("widgets.spotify")
-local net_widget = require("widgets.net")
+local volume_widget = require("volume")
+local spotify_widget = require("spotify")
+local net_widget = require("net")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 local xresources = require("beautiful.xresources")
-local screenshot = require("modules.screenshot")
+local screenshot = require("screenshot")
+local json = require("json")
 local dpi = xresources.apply_dpi
 
 -- {{{ Error handling
@@ -55,7 +60,86 @@ end
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
-local chosen_theme = "gruvbox"
+-- Read chosen_theme value from JSON file
+local config_file_path = string.format("%s/.config/awesome/config.json", os.getenv("HOME"))
+
+local config_file = io.open(config_file_path, "r")
+
+if config_file then
+    local config_content = config_file:read("*all")
+    config_file:close()
+
+    local config_data = json.decode(config_content)
+
+    if config_data and config_data.chosen_theme then
+        chosen_theme = config_data.chosen_theme
+    else
+        print("Error: Invalid or missing chosen_theme value in config file")
+    end
+else
+    print("Error: Config file not found")
+end
+
+-- Function to reload AwesomeWM
+local function reloadAwesomeWM()
+    awesome.restart()
+end
+
+-- Function to update chosen_theme in the JSON file
+local function updateChosenTheme(newTheme)
+    local config_file_path = string.format("%s/.config/awesome/config.json", os.getenv("HOME"))
+
+    local config_file = io.open(config_file_path, "r+")
+
+    if config_file then
+        local config_content = config_file:read("*all")
+        config_file:close()
+
+        local config_data = json.decode(config_content)
+
+        if config_data then
+            config_data.chosen_theme = newTheme
+
+            config_file = io.open(config_file_path, "w")
+            config_file:write(json.encode(config_data))
+            config_file:close()
+
+            print("Chosen theme updated successfully.")
+            reloadAwesomeWM()  -- Reload AwesomeWM after changing the theme
+        else
+            print("Error: Unable to decode config file.")
+        end
+    else
+        print("Error: Config file not found")
+    end
+end
+
+-- Function to get a list of available themes
+local function getAvailableThemes()
+    local theme_path = string.format("%s/.config/awesome/themes/", os.getenv("HOME"))
+    local themes = {}
+
+    local dir = io.popen('ls "' .. theme_path .. '"')
+    for theme in dir:lines() do
+        table.insert(themes, theme)
+    end
+
+    return themes
+end
+
+-- Function to generate theme menu entries
+local function generateThemeMenu()
+    local themes = getAvailableThemes()
+    local themeMenu = {}
+
+    for _, theme in ipairs(themes) do
+        table.insert(themeMenu, { theme, function() updateChosenTheme(theme) end })
+    end
+
+    return themeMenu
+end
+
+-- Now use the chosen_theme value to initialize the theme
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
@@ -104,6 +188,10 @@ myawesomemenu = {
    { "config", editor_cmd .. " " .. awesome.conffile },
    { "theme", editor_cmd .. " " .. theme_path },
    { "reload", awesome.restart },
+   
+}
+
+mypowermenu = {
    { "logout", function() awesome.quit() end },
    { "reboot", function () awful.spawn.with_shell("systemctl reboot") end },
    { "poweroff", function () awful.spawn.with_shell("systemctl poweroff") end },
@@ -135,13 +223,15 @@ mysocialmenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
 				    { "misc", mymiscmenu },
 				    { "screenshot", myscreenshotmenu },
+				    { "themes", generateThemeMenu() },
 				    { "social", mysocialmenu },
 				    { "gaming", mygamingmenu },
 				    { "run promt", function () menubar.show() end },
 				    { "open terminal", terminal },
 				    { "open browser", browser },
 				    { "open files", filemanager },
-				    { "open vscode", "code" }
+				    { "open vscode", "code" },
+				    { "power", mypowermenu }
                                   }
 				})
 

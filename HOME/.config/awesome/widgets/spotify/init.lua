@@ -1,13 +1,3 @@
--------------------------------------------------
--- Spotify Widget for Awesome Window Manager
--- Shows currently playing song on Spotify for Linux client
--- More details could be found here:
--- https://github.com/streetturtle/awesome-wm-widgets/tree/master/spotify-widget
-
--- @author Pavel Makhov
--- @copyright 2020 Pavel Makhov
--------------------------------------------------
-
 local awful = require("awful")
 local wibox = require("wibox")
 local watch = require("awful.widget.watch")
