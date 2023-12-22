@@ -70,6 +70,12 @@ theme.layout_cornernw = theme.wd .. "layouts/cornernw.png"
 theme.layout_cornerne = theme.wd .. "layouts/cornerne.png"
 theme.layout_cornersw = theme.wd .. "layouts/cornersw.png"
 theme.layout_cornerse = theme.wd .. "layouts/cornerse.png"
+theme.layout_mstab = theme.wd .. "layouts/mstab.png"
+theme.layout_centered = theme.wd .. "layouts/centered.png"
+theme.layout_deck = theme.wd .. "layouts/deck.png"
+theme.layout_equalarea = theme.wd .. "layouts/equalarea.png"
+theme.layout_horizontal = theme.wd .. "layouts/horizontal.png"
+theme.layout_vertical = theme.wd .. "layouts/vertical.png"
 
 -- YAWL required theme settings
 theme.yawl_font              = theme.font

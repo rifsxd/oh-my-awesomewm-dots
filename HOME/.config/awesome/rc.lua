@@ -27,6 +27,7 @@ require("awful.hotkeys_popup.keys")
 local xresources = require("beautiful.xresources")
 local screenshot = require("screenshot")
 local json = require("json")
+local bling = require("bling")
 local dpi = xresources.apply_dpi
 awful.util.terminal = "kitty"
 
@@ -178,6 +179,12 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    bling.layout.mstab,
+    bling.layout.centered,
+    bling.layout.vertical,
+    bling.layout.horizontal,
+    bling.layout.equalarea,
+    bling.layout.deck,
 }
 -- }}}
 
