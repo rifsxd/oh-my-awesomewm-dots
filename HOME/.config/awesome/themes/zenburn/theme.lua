@@ -1,8 +1,3 @@
--------------------------------
---  "Zenburn" awesome theme  --
---    By Adrian C. (anrxc)   --
--------------------------------
-
 local themes_path = require("gears.filesystem").get_themes_dir()
 local rnotification = require("ruled.notification")
 local dpi = require("beautiful.xresources").apply_dpi

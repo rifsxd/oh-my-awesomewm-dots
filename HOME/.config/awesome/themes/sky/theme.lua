@@ -1,9 +1,3 @@
--------------------------------
---    "Sky" awesome theme    --
---  By Andrei "Garoth" Thorp --
--------------------------------
--- If you want SVGs and extras, get them from garoth.com/awesome/sky-theme
-
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local rnotification = require("ruled.notification")

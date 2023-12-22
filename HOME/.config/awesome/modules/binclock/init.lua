@@ -1,11 +1,3 @@
---[[
-
-     Licensed under GNU General Public License v2
-      * (c) 2017, Luca CPZ
-      * (c) 2013, romockee
-
---]]
-
 local gears  = require("gears")
 local wibox  = require("wibox")
 local dpi    = require("beautiful.xresources").apply_dpi

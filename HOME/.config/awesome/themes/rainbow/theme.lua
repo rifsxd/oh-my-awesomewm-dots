@@ -1,10 +1,3 @@
---[[
-
-     Rainbow Awesome WM theme 2.0
-     github.com/lcpz
-
---]]
-
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")

@@ -1,10 +1,3 @@
---[[
-
-     Powerarrow Awesome WM theme
-     github.com/lcpz
-
---]]
-
 local gears = require("gears")
 local lain  = require("lain")
 local awful = require("awful")
@@ -102,7 +95,7 @@ local markup = lain.util.markup
 local separators = lain.util.separators
 
 -- Binary clock
-local binclock = require("themes.powerarrow.binclock"){
+local binclock = require("binclock"){
     height = dpi(32),
     show_seconds = true,
     color_active = theme.fg_normal,

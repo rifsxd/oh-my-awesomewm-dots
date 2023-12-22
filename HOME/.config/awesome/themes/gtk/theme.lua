@@ -1,8 +1,3 @@
-----------------------------------------------
--- Awesome theme which follows GTK+ 3 theme --
---   by Yauhen Kirylau                      --
-----------------------------------------------
-
 local theme_assets = require("beautiful.theme_assets")
 local dpi = require("beautiful.xresources").apply_dpi
 local rnotification = require("ruled.notification")
