@@ -28,6 +28,7 @@ local xresources = require("beautiful.xresources")
 local screenshot = require("screenshot")
 local json = require("json")
 local dpi = xresources.apply_dpi
+awful.util.terminal = "kitty"
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
