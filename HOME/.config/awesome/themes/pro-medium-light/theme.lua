@@ -46,7 +46,7 @@ theme.menu_width  = 160
 -- Notifications
 theme.notification_font                         = "Meslo LGS Regular 12"
 theme.notification_bg                           = "#232323"
-theme.notification_fg                           = "e4e4e4"
+theme.notification_fg                           = "#e4e4e4"
 theme.notification_border_width                 = 0
 theme.notification_border_color                 = "#232323"
 theme.notification_shape                        = gears.shape.infobubble
