@@ -1,4 +1,4 @@
-# oh-my-gruvbox-awesomewm-dots
- warm & comfy awm+gruvbox rice
+# oh-my-awesomewm-dots
+ warm & comfy awm+widgets+themes rice
  
  <img src="/assets/preview.png">
