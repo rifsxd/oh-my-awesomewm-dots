@@ -64,8 +64,8 @@
  * Steamburn
  <img src="/assets/steamburn.png">
  
- * Vortex
- <img src="/assets/vortex.png">
+ * Vertex
+ <img src="/assets/vertex.png">
  
  * Zenburn
  <img src="/assets/zenburn.png">
