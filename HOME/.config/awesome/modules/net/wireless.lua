@@ -4,7 +4,7 @@ local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local gears         = require("gears")
 local cairo         = require("lgi").cairo
-local module_path = "widgets"
+local module_path = "modules"
 
 local theme = beautiful.get()
 
@@ -94,7 +94,7 @@ local function worker(args)
     local connected = false
 
     -- Settings
-    local ICON_DIR      = awful.util.getdir("config").."/" .. "widgets/net/icons/"
+    local ICON_DIR      = awful.util.getdir("config").."/" .. "modules/net/icons/"
     local interface     = args.interface or "wlan0"
     local timeout       = args.timeout or 5
     local font          = args.font or beautiful.font

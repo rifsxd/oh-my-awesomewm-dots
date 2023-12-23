@@ -4,7 +4,7 @@ local spawn = require("awful.spawn")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local watch = require("awful.widget.watch")
-local utils = require("widgets.volume.utils")
+local utils = require("volume.utils")
 
 
 local LIST_DEVICES_CMD = [[sh -c "pacmd list-sinks; pacmd list-sources"]]
@@ -15,11 +15,11 @@ local function TOG_VOLUME_CMD(card, device, mixctrl) return 'amixer -c '..card..
 
 
 local widget_types = {
-    icon_and_text = require("widgets.volume.widgets.icon-and-text-widget"),
-    icon = require("widgets.volume.widgets.icon-widget"),
-    arc = require("widgets.volume.widgets.arc-widget"),
-    horizontal_bar = require("widgets.volume.widgets.horizontal-bar-widget"),
-    vertical_bar = require("widgets.volume.widgets.vertical-bar-widget")
+    icon_and_text = require("volume.widgets.icon-and-text-widget"),
+    icon = require("volume.widgets.icon-widget"),
+    arc = require("volume.widgets.arc-widget"),
+    horizontal_bar = require("volume.widgets.horizontal-bar-widget"),
+    vertical_bar = require("volume.widgets.vertical-bar-widget")
 }
 local volume = {}
 

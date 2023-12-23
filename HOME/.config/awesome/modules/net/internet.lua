@@ -3,7 +3,7 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local gears = require("gears")
-local module_path = "widgets"
+local module_path = "modules"
 
 local theme = beautiful.get()
 
@@ -12,7 +12,7 @@ local function worker(args)
   local args = args or {}
   local widget = wibox.container.background()
   -- Icons made by http://www.flaticon.com/authors/maxim-basinski from www.flaticon.com
-  local ICON_DIR = awful.util.getdir("config").."/" .. "widgets/net/icons/"
+  local ICON_DIR = awful.util.getdir("config").."/" .. "modules/net/icons/"
   local yes_internet = wibox.widget {
     {
       widget = wibox.widget.imagebox,
