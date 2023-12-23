@@ -9,7 +9,7 @@ local xresources = require("beautiful.xresources")
 local screenshot = require("screenshot")
 local dpi = xresources.apply_dpi
 
-local comp_path = string.format("%s/.config/awesomw/misc/compositor/compfy.conf", os.getenv("HOME"))
+local comp_path = string.format("%s/.config/awesome/misc/compositor/compfy.conf", os.getenv("HOME"))
 
 awful.util.terminal = "kitty"
 terminal = "kitty"
