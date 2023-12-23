@@ -4,6 +4,13 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local screenshot = require("screenshot")
 
+awful.util.terminal = "kitty"
+terminal = "kitty"
+filemanager = "thunar"
+browser = "firefox"
+editor = os.getenv("EDITOR") or "mousepad"
+editor_cmd = terminal .. " -e " .. editor
+
 modkey = "Mod4"
 
 globalkeys = gears.table.join(

@@ -17,7 +17,6 @@ filemanager = "thunar"
 browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
 editor_cmd = terminal .. " -e " .. editor
-menubar.utils.terminal = terminal
 
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },

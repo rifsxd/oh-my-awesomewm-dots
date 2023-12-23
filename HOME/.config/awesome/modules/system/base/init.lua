@@ -4,6 +4,9 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
+require("awful.autofocus")
+
+awful.util.terminal = "kitty"
 
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
