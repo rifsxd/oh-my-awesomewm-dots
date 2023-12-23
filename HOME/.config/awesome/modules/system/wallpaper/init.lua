@@ -82,7 +82,7 @@ function generateWallMenu()
 end
 
 
-
+-- this function gets the wallpaper from the walls folder dynamically
 function set_wallpaper(s)
 
     if beautiful.wallpaper then
@@ -94,6 +94,19 @@ function set_wallpaper(s)
         gears.wallpaper.maximized(string.format("%s/.config/awesome/walls/%s.png", os.getenv("HOME"), chosen_wall), s, true)
     end
 end
+
+-- this function gets the wallpaper from the theme.lua
+--function set_wallpaper(s)
+
+--    if beautiful.wallpaper then
+--        local wallpaper = beautiful.wallpaper
+
+--        if type(wallpaper) == "function" then
+--            wallpaper = wallpaper(s)
+--        end
+--        gears.wallpaper.maximized(wallpaper, s, true)
+--    end
+--end
 
 screen.connect_signal("property::geometry", set_wallpaper)
 
