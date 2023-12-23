@@ -26,7 +26,7 @@ function reloadAwesomeWM()
     awesome.restart()
 end
 
-function updateChosenTheme(newTheme)
+function updateChosenTheme(default)
     local config_file_path = string.format("%s/.config/awesome/misc/theming/config.json", os.getenv("HOME"))
 
     local config_file = io.open(config_file_path, "r+")
@@ -38,7 +38,7 @@ function updateChosenTheme(newTheme)
         local config_data = json.decode(config_content)
 
         if config_data then
-            config_data.chosen_theme = newTheme
+            config_data.chosen_theme = default
 
             config_file = io.open(config_file_path, "w")
             config_file:write(json.encode(config_data))

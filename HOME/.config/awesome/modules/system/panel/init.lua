@@ -1,32 +1,11 @@
 local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
-local beautiful = require("beautiful")
 local menubar = require("menubar")
-local hotkeys_popup = require("awful.hotkeys_popup")
 local volume_widget = require("volume")
 local spotify_widget = require("spotify")
 local net_widget = require("net")
-require("awful.hotkeys_popup.keys")
-local xresources = require("beautiful.xresources")
-local screenshot = require("screenshot")
-local dpi = xresources.apply_dpi
 
-local function set_wallpaper(s)
-
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
-
-screen.connect_signal("property::geometry", set_wallpaper)
-
-mykeyboardlayout = awful.widget.keyboardlayout()
 
 mytextclock = wibox.widget.textclock()
 
@@ -36,8 +15,6 @@ net_wired = net_widget.indicator({
 })
 
 awful.screen.connect_for_each_screen(function(s)
-
-    set_wallpaper(s)
 
     awful.tag({ "一", "二", "三", "四", "五", "六", "七", "八", "九" }, s, awful.layout.suit.tile)
 

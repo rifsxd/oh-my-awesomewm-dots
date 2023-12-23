@@ -60,6 +60,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
 				    { "misc", mymiscmenu },
 				    { "screenshot", myscreenshotmenu },
 				    { "themes", generateThemeMenu() },
+				    { "walls", generateWallMenu() },
 				    { "social", mysocialmenu },
 				    { "gaming", mygamingmenu },
 				    { "run promt", function () menubar.show() end },
@@ -82,5 +83,4 @@ myrebootmenu = awful.menu({ items = mymiscmenu })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
-
 

@@ -35,6 +35,6 @@ theme.hotkeys_description_font = 'Fira Code 10'
 theme.hotkeys_group_margin = 20
 
 -- Wallpaper
-theme.wallpaper = '~/.config/awesome/themes/Morning/wallpaper.jpg'
+theme.wallpaper = '~/.config/awesome/themes/morning/wallpaper.jpg'
 
 return theme
