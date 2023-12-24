@@ -5,8 +5,8 @@ require("awful.hotkeys_popup.keys")
 local screenshot = require("screenshot")
 local menubar = require("menubar")
 
-awful.util.terminal = "kitty"
-terminal = "kitty"
+awful.util.terminal = "wezterm"
+terminal = "wezterm"
 filemanager = "thunar"
 browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
@@ -31,7 +31,7 @@ globalkeys = gears.table.join(
           {description = "Take a screenshot of delay", group = "screenshot"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn("gpick -p") end,
               {description = "open a color picker", group = "launcher"}),
-    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("compfy") end,
+    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/misc/compositor/compfy.conf") end,
               {description="turn on compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall compfy") end,
               {description="turn off compositor", group="launcher"}),

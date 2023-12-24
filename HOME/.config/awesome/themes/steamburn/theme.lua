@@ -67,6 +67,10 @@ theme.titlebar_maximized_button_focus_inactive  = theme.zenburn_dir.."/titlebar/
 theme.titlebar_maximized_button_normal_active   = theme.zenburn_dir.."/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = theme.zenburn_dir.."/titlebar/maximized_focus_active.png"
 
+-- borders and gaps
+theme.useless_gap   = 11
+theme.border_width  = 1
+
 -- lain related
 theme.layout_txt_termfair                       = "[termfair]"
 theme.layout_txt_centerfair                     = "[centerfair]"

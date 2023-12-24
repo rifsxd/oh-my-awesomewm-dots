@@ -6,7 +6,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 require("awful.autofocus")
 
-awful.util.terminal = "kitty"
+awful.util.terminal = "wezterm"
 
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
