@@ -39,7 +39,7 @@ mymiscmenu = {
    { "compositor on", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/config/compositor/compfy.conf") end },
    { "compositor off", function () awful.spawn.with_shell("killall compfy") end },
    { "compositor config", editor_cmd .. " " .. comp_path },
-   { "network manager", function () awful.spawn.with_shell(network) end,
+   { "network manager", function () awful.spawn.with_shell(network) end },
 }
 
 myscreenshotmenu = {
