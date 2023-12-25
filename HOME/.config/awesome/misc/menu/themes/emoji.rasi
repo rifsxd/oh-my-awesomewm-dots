@@ -23,7 +23,7 @@ window {
     border-color: 					@selected;
     border-radius: 					0px;
     width: 						600px;
-    height: 						0px;
+    height: 						420px;
 }
 
 prompt {

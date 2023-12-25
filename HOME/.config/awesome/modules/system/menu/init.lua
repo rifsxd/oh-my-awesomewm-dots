@@ -9,7 +9,7 @@ local xresources = require("beautiful.xresources")
 local screenshot = require("screenshot")
 local dpi = xresources.apply_dpi
 
-local comp_path = string.format("%s/.config/awesome/misc/compositor/compfy.conf", os.getenv("HOME"))
+local comp_path = string.format("%s/.config/awesome/config/compositor/compfy.conf", os.getenv("HOME"))
 
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
@@ -17,6 +17,7 @@ filemanager = "thunar"
 browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
 editor_cmd = terminal .. " -e " .. editor
+network = "~/.config/awesome/misc/menu/bin/network"
 record = "obs --startrecording --minimize-to-tray"
 
 myawesomemenu = {
@@ -35,9 +36,10 @@ mypowermenu = {
 }
 
 mymiscmenu = {
-   { "compositor on", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/misc/compositor/compfy.conf") end },
+   { "compositor on", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/config/compositor/compfy.conf") end },
    { "compositor off", function () awful.spawn.with_shell("killall compfy") end },
    { "compositor config", editor_cmd .. " " .. comp_path },
+   { "network manager", function () awful.spawn.with_shell(network) end,
 }
 
 myscreenshotmenu = {

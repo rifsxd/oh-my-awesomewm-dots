@@ -2,7 +2,7 @@ local beautiful = require("beautiful")
 local gears = require("gears")
 local json = require("json")
 
-config_file_path = string.format("%s/.config/awesome/misc/theming/config.json", os.getenv("HOME"))
+config_file_path = string.format("%s/.config/awesome/config/theme/config.json", os.getenv("HOME"))
 
 config_file = io.open(config_file_path, "r")
 
@@ -26,7 +26,7 @@ function reloadAwesomeWM()
 end
 
 function updateChosenWall(default)
-    local config_file_path = string.format("%s/.config/awesome/misc/theming/config.json", os.getenv("HOME"))
+    local config_file_path = string.format("%s/.config/awesome/config/theme/config.json", os.getenv("HOME"))
 
     local config_file = io.open(config_file_path, "r+")
 

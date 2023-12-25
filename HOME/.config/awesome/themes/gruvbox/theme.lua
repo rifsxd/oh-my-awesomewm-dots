@@ -8,7 +8,7 @@ theme.wd = "~/.config/awesome/themes/gruvbox/"
 -- wallpaper
 theme.wallpaper = theme.wd .. "wallpapers/background.png"
 -- awesome icon
-theme.awesome_icon = theme.wd .. "icons/awesome.png"
+theme.awesome_icon = theme.wd .. "icons/aorus.png"
 
 -- fonts
 theme.base_font     = "JetBrainsMono Nerd Font 10"

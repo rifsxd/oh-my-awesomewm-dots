@@ -2,10 +2,8 @@
 configuration {
     font:                           "JetBrainsMono Nerd Font 10";
     show-icons:                     false;
-    display-window: 				"Windows :";
-    window-format: 					"{w}  ·  {c}  ·  {t}";
     disable-history:                false;
-    click-to-exit: 					true;
+	click-to-exit: 					true;
 }
 
 @import "colors.rasi"
@@ -14,11 +12,11 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border:                  	    1px;
-    border-color:                   @selected;
+    border:                  		1px;
+    border-color:                  	@selected;
     border-radius:                  0px;
     width:                          600px;
-    height:                          420px;
+    height:                         420px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;
@@ -26,34 +24,34 @@ window {
 }
 
 prompt {
-    enabled: 			    true;
-    margin: 		    	    0px 0px 0px 8px;
-    padding:    		    6px 0px 6px 0px;
-    background-color: 	    	    @background;
-    text-color: 		    @foreground;
-    border:                  	    0px 0px 1px 0px;
-    border-color:                   @selected;
+    enabled: 						true;
+	margin: 						0px 0px 0px 8px;
+    padding:    					6px 0px 6px 0px;
+	background-color: 				@background;
+	text-color: 					@foreground;
+    border:                  		0px 0px 1px 0px;
+    border-color:                  	@selected;
     border-radius:                  0px;
 }
 
 textbox-prompt-colon {
-    expand: 			    false;
-    str: 		  	    " ";
+	expand: 						false;
+	str: 							"󰒍 Network";
     border-radius:                  0px;
     background-color:               @highlight;
     text-color:                     @background;
-    padding:    		    6px 10px 6px 10px;
-    font:			    "JetBrainsMono Nerd Font 10";
+    padding:    					6px 10px 6px 10px;
+	font:							"JetBrainsMono Nerd Font 10";
 }
 
 entry {
     background-color:               @background;
     text-color:                     @foreground;
-    border:                  	    0px 0px 1px 0px;
+    border:                  		0px 0px 1px 0px;
     border-radius:                  0px;
-    border-color:                   @selected;
+    border-color:                  	@selected;
     placeholder-color:              @foreground;
-    placeholder:                    "Find...";
+    placeholder:                    "";
     expand:                         true;
     horizontal-align:               0;
     blink:                          true;
@@ -61,7 +59,7 @@ entry {
 }
 
 inputbar {
-    children: 			    [ textbox-prompt-colon, prompt, entry ];
+	children: 						[ textbox-prompt-colon, prompt, entry ];
     spacing:                        0;
     background-color:               @background;
     text-color:                     @foreground;
@@ -82,7 +80,7 @@ listview {
     background-color:               @background;
     columns:                        1;
     lines:							7;
-    spacing:                        5px;
+    spacing:                        4px;
     cycle:                          true;
     dynamic:                        true;
     layout:                         vertical;
@@ -121,6 +119,19 @@ element-text {
     margin:                         2px 0px 2px 2px;
 }
 
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
+    border-radius:                  0px;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @background;
+    text-color:                     @foreground;
+}
+
 element selected {
     background-color:               @selected;
     text-color:                     @background;
@@ -129,24 +140,12 @@ element selected {
     border-color:                  	@selected;
 }
 
-element.active,
-element.selected.urgent {
-  background-color: @on;
-  text-color: @background;
-  border-color: @on;
+element selected.urgent {
+    background-color:               @urgent;
+    text-color:                     @foreground;
 }
 
-element.selected.urgent {
-  border-color: @selected;
-}
-
-element.urgent,
-element.selected.active {
-  background-color: @off;
-  text-color: @background;
-  border-color: @off;
-}
-
-element.selected.active {
-  border-color: @selected;
+element selected.active {
+    background-color:               @background;
+    color:                          @foreground;
 }

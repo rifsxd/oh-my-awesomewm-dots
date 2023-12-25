@@ -14,6 +14,7 @@ editor_cmd = terminal .. " -e " .. editor
 launcher = "~/.config/awesome/misc/menu/bin/launcher"
 windows = "~/.config/awesome/misc/menu/bin/windows"
 emoji = "~/.config/awesome/misc/menu/bin/emoji"
+network = "~/.config/awesome/misc/menu/bin/network"
 record = "obs --startrecording --minimize-to-tray"
 
 modkey = "Mod4"
@@ -37,7 +38,7 @@ globalkeys = gears.table.join(
           {description = "Record entire screen", group = "screenshot"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn("gpick -p") end,
               {description = "open a color picker", group = "launcher"}),
-    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/misc/compositor/compfy.conf") end,
+    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/config/compositor/compfy.conf") end,
               {description="turn on compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall compfy") end,
               {description="turn off compositor", group="launcher"}),
@@ -113,6 +114,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "r", function () awful.spawn.with_shell(launcher) end,
               {description = "open launcher", group = "launcher"}),
     awful.key({ modkey,           }, "w", function () awful.spawn.with_shell(windows) end,
+              {description = "open windows", group = "launcher"}),
+    awful.key({ modkey, "Shift"     }, "n", function () awful.spawn.with_shell(network) end,
               {description = "open windows", group = "launcher"}),
     awful.key({ modkey,           }, ";", function () awful.spawn.with_shell(emoji) end,
               {description = "open emoji", group = "launcher"}),
