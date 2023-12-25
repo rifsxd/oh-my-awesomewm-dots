@@ -17,6 +17,7 @@ filemanager = "thunar"
 browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
 editor_cmd = terminal .. " -e " .. editor
+record = "obs --startrecording --minimize-to-tray"
 
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -44,6 +45,7 @@ myscreenshotmenu = {
    { "scrnshot sel", scrot_selection },
    { "scrnshot win", scrot_window },
    { "scrnshot delay", scrot_delay },
+   { "scrnrecord", function () awful.spawn.with_shell(record) end },
 }
 
 mygamingmenu = {

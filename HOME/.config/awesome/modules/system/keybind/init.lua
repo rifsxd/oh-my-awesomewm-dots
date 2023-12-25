@@ -14,6 +14,7 @@ editor_cmd = terminal .. " -e " .. editor
 launcher = "~/.config/awesome/misc/menu/bin/launcher"
 windows = "~/.config/awesome/misc/menu/bin/windows"
 emoji = "~/.config/awesome/misc/menu/bin/emoji"
+record = "obs --startrecording --minimize-to-tray"
 
 modkey = "Mod4"
 
@@ -32,6 +33,8 @@ globalkeys = gears.table.join(
           {description = "Take a screenshot of focused window", group = "screenshot"}),
     awful.key({ "Ctrl" }, "Print", scrot_delay,
           {description = "Take a screenshot of delay", group = "screenshot"}),
+    awful.key({}, "XF86Calculator", function () awful.spawn.with_shell(record) end,
+          {description = "Record entire screen", group = "screenshot"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn("gpick -p") end,
               {description = "open a color picker", group = "launcher"}),
     awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/misc/compositor/compfy.conf") end,
