@@ -11,6 +11,9 @@ filemanager = "thunar"
 browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
 editor_cmd = terminal .. " -e " .. editor
+launcher = "~/.config/awesome/misc/menu/bin/launcher"
+windows = "~/.config/awesome/misc/menu/bin/windows"
+emoji = "~/.config/awesome/misc/menu/bin/emoji"
 
 modkey = "Mod4"
 
@@ -68,7 +71,7 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    awful.key({ modkey,           }, "z", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
     
     awful.key({ modkey,           }, "x", function () myrebootmenu:show() end,
@@ -104,6 +107,12 @@ globalkeys = gears.table.join(
               {description = "open a browser", group = "launcher"}),
     awful.key({ modkey,           }, "q", function () awful.spawn("code") end,
               {description = "open vscode", group = "launcher"}),
+    awful.key({ modkey,           }, "r", function () awful.spawn.with_shell(launcher) end,
+              {description = "open launcher", group = "launcher"}),
+    awful.key({ modkey,           }, "w", function () awful.spawn.with_shell(windows) end,
+              {description = "open windows", group = "launcher"}),
+    awful.key({ modkey,           }, ";", function () awful.spawn.with_shell(emoji) end,
+              {description = "open emoji", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -146,9 +155,9 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
-    awful.key({ modkey }, "r", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "lua execute prompt", group = "awesome"})
+    --awful.key({ modkey }, "r", function() menubar.show() end,
+              --{description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+DIR="$HOME/.config/awesome"
+
+rofi \
+	-show drun \
+	-modi run,drun,ssh \
+	-no-lazy-grab \
+	-scroll-method 0 \
+	-drun-match-fields all \
+	-drun-display-format "{name}" \
+	-no-drun-show-actions \
+	-terminal wezterm \
+	-theme "$DIR"/misc/menu/themes/launcher.rasi
