@@ -37,8 +37,13 @@ theme.hotkeys_border_width = theme.border_width
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
 -- borders and gaps
-theme.useless_gap   = 22
-theme.border_width  = 2
+theme.useless_gap   = dpi(22)
+theme.border_width  = dpi(2)
+
+
+theme.border_color_normal = "#fabd2f"
+theme.border_color_active = "#EBDBB2"
+theme.border_color_marked = "#928374"
 
 -- taglist
 theme.taglist_squares_sel   = theme.wd .. "tags/focus.png"
