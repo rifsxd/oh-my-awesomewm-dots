@@ -131,7 +131,11 @@ theme.titlebar_maximized_button_normal_inactive = theme.wd .. "titlebars/maximiz
 -- }}}
 
 -- Naughty
-theme.naughty_bg_urgent = theme.fg_urgent
-theme.naughty_fg_urgent = theme.fg_normal
+theme.naughty_bg_urgent = theme.bg_urgent
+theme.naughty_fg_urgent = theme.fg_urgent
+
+-- Define the icon theme for application icons. If not set then the icons
+-- from /usr/share/icons and /usr/share/icons/hicolor will be used.
+theme.icon_theme = "Gruvbox-Material-Dark"
 
 return theme

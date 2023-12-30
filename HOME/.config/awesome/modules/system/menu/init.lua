@@ -11,6 +11,8 @@ local dpi = xresources.apply_dpi
 
 local comp_path = string.format("%s/.config/awesome/config/compositor/compfy.conf", os.getenv("HOME"))
 
+local conf_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
+
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
 filemanager = "thunar"
@@ -24,6 +26,7 @@ myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
    { "config", editor_cmd .. " " .. awesome.conffile },
+   { "path", filemanager .. " " .. conf_path },
    { "theme", editor_cmd .. " " .. theme_path },
    { "reload", awesome.restart },
    
