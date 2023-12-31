@@ -2,7 +2,7 @@
  warm & comfy awm+widgets+themes rice
 
  * Gruvbox
- <img src="/assets/gruvbox.png">
+ <img src="/assets/gruvbox2.png">
  
  * Gtk
  <img src="/assets/gtk3.png">
