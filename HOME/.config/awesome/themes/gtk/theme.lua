@@ -348,6 +348,14 @@ rnotification.connect_signal('request::rules', function()
     }
 end)
 
+theme.wd = "~/.config/awesome/themes/gtk/"
+
+theme.play_icon = theme.wd .. "icons/play.png"
+theme.pause_icon = theme.wd .. "icons/pause.png"
+theme.wired = theme.wd .. "icons/wired.png"
+theme.wired_na = theme.wd .. "icons/wired_na.png"
+theme.vpn = theme.wd .. "icons/vpn.png"
+
 return theme
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80:foldmethod=marker

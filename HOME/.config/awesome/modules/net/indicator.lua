@@ -345,9 +345,9 @@ local function worker(args)
     return string.gsub(string.gsub(msg, '^\n', ""), '\n$', "")
   end  -- function text_grabber()
 
-  wired:set_image(ICON_DIR.."wired.png")
-  wired_na:set_image(ICON_DIR.."wired_na.png")
-  vpn:set_image(ICON_DIR.."vpn.png")
+  wired:set_image(beautiful.wired)
+  wired_na:set_image(beautiful.wired_na)
+  vpn:set_image(beautiful.vpn)
   widget:set_widget(wired_na)
   local function net_update()
     -- Refresh interface data

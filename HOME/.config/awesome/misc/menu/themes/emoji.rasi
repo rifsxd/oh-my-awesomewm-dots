@@ -109,7 +109,7 @@ element normal.active {
 }
 element selected.normal {
     background-color: 				@selected;
-    text-color:       				@background;
+    text-color:       				@foreground;
     border: 						0px;
     border-color: 					@selected;
 }
@@ -153,7 +153,7 @@ button {
 
 button selected {
     background-color:             	@selected;
-    text-color: 					@background;
+    text-color: 					@foreground;
     border: 						0px;
     border-radius: 					0px;
     border-color: 					@selected;

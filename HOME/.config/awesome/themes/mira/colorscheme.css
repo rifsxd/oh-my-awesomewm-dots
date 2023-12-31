@@ -1,0 +1,37 @@
+
+/* FG & BG colors */
+  span.fg-color   { color: #0a0013; }
+  span.bg-color   { color: #CCC4FF; }
+  
+  /* Normal colors */
+  span.black   { color: #111111; }
+  span.red     { color: #ff5c5c; }
+  span.green   { color: #88ff78; }
+  span.yellow  { color: #fffa78; }
+  span.blue    { color: #7aa2ff; }
+  span.magenta { color: #cc80ff; }
+  span.cyan    { color: #9cfffc; }
+  span.white   { color: #ffffff; }
+  
+  /* Bright colors */
+  span.bright_black   { color: #3b3b3b; }
+  span.bright_red     { color: #ff8e8e; }
+  span.bright_green   { color: #b6ffac; }
+  span.bright_yellow  { color: #fffca7; }
+  span.bright_blue    { color: #a9c3ff; }
+  span.bright_magenta { color: #dfafff; }
+  span.bright_cyan    { color: #befffd; }
+  span.bright_white   { color: #e7e7e7; }
+
+  /* awesomewm specific colors */
+
+  span.bg_normal                { color: #cac2ff; }
+  span.bg_focus                 { color: #e0b1ff; }
+  span.fg_normal                { color: #0a0013; }
+  span.fg_urgent                { color: #ff5757; }
+  span.border_normal            { color: #d9d3ff; }
+  span.border_focus             { color: #d28fff; }
+  span.border_color_normal      { color: #d28fff; }
+  span.border_color_active      { color: #b6ffac; }
+  span.border_color_marked      { color: #ff8e8e; }
+  

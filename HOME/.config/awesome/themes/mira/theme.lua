@@ -3,12 +3,12 @@ local theme = {}
 local dpi = require("beautiful.xresources").apply_dpi
 
 -- Theme working directory
-theme.wd = "~/.config/awesome/themes/gruvbox/"
+theme.wd = "~/.config/awesome/themes/mira/"
 
 -- wallpaper
 theme.wallpaper = theme.wd .. "wallpapers/background.png"
 -- awesome icon
-theme.awesome_icon = theme.wd .. "icons/aorus.png"
+theme.awesome_icon = theme.wd .. "icons/paw.png"
 theme.play_icon = theme.wd .. "icons/play.png"
 theme.pause_icon = theme.wd .. "icons/pause.png"
 theme.wired = theme.wd .. "icons/wired.png"
@@ -24,12 +24,12 @@ theme.icon_font     = theme.base_font
 theme.hotkeys_description_font = theme.base_font
 
 -- colors
-theme.bg_normal     = "#282828"
-theme.bg_focus      = "#3c3836"
-theme.fg_normal     = "#ebdbb2"
-theme.fg_urgent     = "#cc241d"
-theme.border_normal = "#928374"
-theme.border_focus  = "#fabd2f"
+theme.bg_normal     = "#CCC4FF"
+theme.bg_focus      = "#e0b1ff"
+theme.fg_normal     = "#0a0013"
+theme.fg_urgent     = "#ff5757"
+theme.border_normal = "#d9d3ff"
+theme.border_focus  = "#d28fff"
 theme.bg_urgent     = theme.bg_normal
 theme.bg_minimize   = theme.bg_focus
 theme.bg_systray    = theme.bg_normal
@@ -42,13 +42,13 @@ theme.hotkeys_border_width = theme.border_width
 theme.hotkeys_modifiers_fg = theme.fg_urgent
 
 -- borders and gaps
-theme.useless_gap   = dpi(22)
-theme.border_width  = dpi(2)
+theme.useless_gap   = dpi(14)
+theme.border_width  = dpi(4)
 
 
-theme.border_color_normal = "#fabd2f"
-theme.border_color_active = "#EBDBB2"
-theme.border_color_marked = "#928374"
+theme.border_color_normal = "#d28fff"
+theme.border_color_active = "#b6ffac"
+theme.border_color_marked = "#ff8e8e"
 
 -- taglist
 theme.taglist_squares_sel   = theme.wd .. "tags/focus.png"
@@ -87,25 +87,6 @@ theme.layout_equalarea = theme.wd .. "layouts/equalarea.png"
 theme.layout_horizontal = theme.wd .. "layouts/horizontal.png"
 theme.layout_vertical = theme.wd .. "layouts/vertical.png"
 
--- YAWL required theme settings
-theme.yawl_font              = theme.font
-theme.yawl_bg                = "#458588"
-theme.yawl_bg_ok             = "#98971a"
-theme.yawl_bg_nok            = "#cc241d"
-theme.yawl_fg                = "#FFFFFF"
-theme.yawl_spotify_absent    = theme.bg_normal
-theme.yawl_spotify_absent_fg = theme.fg_normal
-theme.yawl_spotify_pause     = "#d79921"
-theme.yawl_spotify_play      = "#d3869b"
-theme.yawl_battery_full      = theme.yawl_bg_ok
-theme.yawl_battery_mid       = "#d79921"
-theme.yawl_battery_low       = theme.yawl_bg_nok
-theme.yawl_pomodoro_absent   = theme.bg_normal
-theme.yawl_pomodoro          = theme.fg_normal
-theme.yawl_pomodoro_working  = "#d79921"
-theme.yawl_pomodoro_break    = "#689d6a"
-theme.yawl_pomodoro_paused   = "#cc241d"
-
 -- {{{ Titlebar
 theme.titlebar_close_button_focus  = theme.wd .. "titlebars/close_focus.png"
 theme.titlebar_close_button_normal = theme.wd .. "titlebars/close_normal.png"
@@ -141,6 +122,6 @@ theme.naughty_fg_urgent = theme.fg_urgent
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = "Gruvbox-Material-Dark"
+theme.icon_theme = "Papirus-Dark"
 
 return theme

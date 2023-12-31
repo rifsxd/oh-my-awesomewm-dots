@@ -92,6 +92,15 @@ theme.cal = lain.widget.cal({
     }
 })
 
+theme.wd = "~/.config/awesome/themes/steamburn/"
+
+theme.play_icon = theme.wd .. "icons/play.png"
+theme.pause_icon = theme.wd .. "icons/pause.png"
+theme.wired = theme.wd .. "icons/wired.png"
+theme.wired_na = theme.wd .. "icons/wired_na.png"
+theme.vpn = theme.wd .. "icons/vpn.png"
+
+
 -- Mail IMAP check
 --[[ to be set before use
 theme.mail = lain.widget.imap({

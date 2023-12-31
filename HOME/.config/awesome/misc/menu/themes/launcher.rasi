@@ -1,7 +1,7 @@
 
 configuration {
     location: 						0;
-    fixed-num-lines: 				true;
+    fixed-num-lines: 				false;
     show-icons: 					false;
     sidebar-mode: 					true;
     scroll-method: 					1;
@@ -111,7 +111,7 @@ element normal.active {
 }
 element selected.normal {
     background-color: 				@selected;
-    text-color:       				@background;
+    text-color:       				@foreground;
     border: 						0px;
     border-color: 					@selected;
 }
@@ -155,7 +155,7 @@ button {
 
 button selected {
     background-color:             	@selected;
-    text-color: 					@background;
+    text-color: 					@foreground;
     border: 						0px;
     border-radius: 					0px;
     border-color: 					@selected;
