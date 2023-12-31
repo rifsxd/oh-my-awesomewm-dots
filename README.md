@@ -11,5 +11,5 @@
  <img src="/assets/mira.png">
  
  * Steamburn
- <img src="/assets/steamburn.png">
+ <img src="/assets/steamburn2.png">
  
