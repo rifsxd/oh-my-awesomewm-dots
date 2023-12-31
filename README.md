@@ -5,7 +5,7 @@
  <img src="/assets/gruvbox.png">
  
  * Gtk
- <img src="/assets/gtk.png">
+ <img src="/assets/gtk3.png">
  
  * Mirage
  <img src="/assets/mirage.png">
