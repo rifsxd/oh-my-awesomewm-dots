@@ -7,8 +7,8 @@
  * Gtk
  <img src="/assets/gtk3.png">
  
- * Mirage
- <img src="/assets/mirage.png">
+ * Mira
+ <img src="/assets/mira.png">
  
  * Steamburn
  <img src="/assets/steamburn.png">
