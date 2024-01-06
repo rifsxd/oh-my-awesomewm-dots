@@ -7,7 +7,7 @@ local spotify_widget = require("spotify")
 local net_widget = require("net")
 
 
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock(" %a, %b %d - %Y - %I:%M ")
 
 net_wired = net_widget.indicator({
     interfaces  = {"enp5s0"},
