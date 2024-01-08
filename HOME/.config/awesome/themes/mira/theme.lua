@@ -60,8 +60,8 @@ theme.tasklist_disable_icon = true
 
 -- menu
 theme.menu_submenu_icon = theme.wd .. "icons/submenu.png"
-theme.menu_height = dpi(20)
-theme.menu_width  = dpi(180)
+theme.menu_height = dpi(24)
+theme.menu_width  = dpi(164)
 
 -- layouts icons
 theme.layout_fairh = theme.wd .. "layouts/fairh.png"

@@ -8,6 +8,7 @@ require("awful.hotkeys_popup.keys")
 local xresources = require("beautiful.xresources")
 local screenshot = require("screenshot")
 local dpi = xresources.apply_dpi
+local freedesktop = require("freedesktop")
 
 local comp_path = string.format("%s/.config/awesome/config/compositor/compfy.conf", os.getenv("HOME"))
 
@@ -16,17 +17,22 @@ local conf_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
 filemanager = "thunar"
+ide = "code"
 browser = "firefox"
 editor = os.getenv("EDITOR") or "mousepad"
 editor_cmd = terminal .. " -e " .. editor
 network = "~/.config/awesome/misc/menu/bin/network"
 record = "obs --startrecording --minimize-to-tray"
 
+function runpromt()
+   menubar.show()
+end
+
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
    { "config", editor_cmd .. " " .. awesome.conffile },
-   { "path", filemanager .. " " .. conf_path },
+   { "code", ide .. " " .. conf_path },
    { "theme", editor_cmd .. " " .. theme_path },
    { "reload", awesome.restart },
    
@@ -36,12 +42,13 @@ mypowermenu = {
    { "logout", function() awesome.quit() end },
    { "reboot", function () awful.spawn.with_shell("systemctl reboot") end },
    { "poweroff", function () awful.spawn.with_shell("systemctl poweroff") end },
+   { "lock", function () awful.spawn.with_shell("betterlockscreen -l blur") end },
 }
 
 mymiscmenu = {
    { "compositor on", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/config/compositor/compfy.conf") end },
    { "compositor off", function () awful.spawn.with_shell("killall compfy") end },
-   { "compositor config", editor_cmd .. " " .. comp_path },
+   { "compositor conf", editor_cmd .. " " .. comp_path },
    { "network manager", function () awful.spawn.with_shell(network) end },
 }
 
@@ -50,7 +57,7 @@ myscreenshotmenu = {
    { "scrnshot sel", scrot_selection },
    { "scrnshot win", scrot_window },
    { "scrnshot delay", scrot_delay },
-   { "scrnrecord", function () awful.spawn.with_shell(record) end },
+   { "scrncord now", function () awful.spawn.with_shell(record) end },
 }
 
 mygamingmenu = {
@@ -63,27 +70,31 @@ mysocialmenu = {
    { "spotify", function () awful.spawn("spotify") end },
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu },
+mymainmenu = freedesktop.menu.build({
+            after = { 
+                { "awesome", myawesomemenu },
 				    { "misc", mymiscmenu },
 				    { "screenshot", myscreenshotmenu },
 				    { "themes", generateThemeMenu() },
 				    { "walls", generateWallMenu() },
 				    { "social", mysocialmenu },
 				    { "gaming", mygamingmenu },
-				    { "run promt", function () menubar.show() end },
+				    { "run promt", runpromt },
 				    { "open terminal", terminal },
 				    { "open browser", browser },
 				    { "open files", filemanager },
 				    { "open vscode", "code" },
 				    { "power", mypowermenu }
-                                  }
-				})
+            },
+            sub_menu = "applications"
+})
 
 mymiscmenu = {
    { "reload", awesome.restart },
    { "logout", function() awesome.quit() end },
    { "reboot", function () awful.spawn.with_shell("systemctl reboot") end },
    { "poweroff", function () awful.spawn.with_shell("systemctl poweroff") end },
+   { "lock", function () awful.spawn.with_shell("betterlockscreen -l blur") end },
 }
 
 myrebootmenu = awful.menu({ items = mymiscmenu })

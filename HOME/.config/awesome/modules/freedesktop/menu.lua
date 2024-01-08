@@ -70,7 +70,7 @@ function menu.build(args)
     menu_gen.generate(function(entries)
         -- Add category icons
         for k, v in pairs(menu_gen.all_categories) do
-            table.insert(result, { k, {}, v.icon })
+            table.insert(result, { k, {}}) --v.icon })
         end
 
         -- Get items table
@@ -78,7 +78,7 @@ function menu.build(args)
             for _, cat in pairs(result) do
                 if cat[1] == v.category then
                     if not menu.has_value(skip_items, v.name) then
-                        table.insert(cat[2], { v.name, v.cmdline, v.icon })
+                        table.insert(cat[2], {  string.lower(v.name), v.cmdline}) --v.icon })
                     end
                     break
                 end
@@ -95,7 +95,7 @@ function menu.build(args)
                 --Sort entries alphabetically (by name)
                 table.sort(v[2], function (a, b) return string.byte(a[1]) < string.byte(b[1]) end)
                 -- Replace category name with nice name
-                v[1] = menu_gen.all_categories[v[1]].name
+                v[1] = string.lower(menu_gen.all_categories[v[1]].name)
             end
         end
 

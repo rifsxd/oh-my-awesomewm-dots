@@ -17,6 +17,10 @@ emoji = "~/.config/awesome/misc/menu/bin/emoji"
 network = "~/.config/awesome/misc/menu/bin/network"
 record = "obs --startrecording --minimize-to-tray"
 
+function runpromt()
+    menubar.show()
+end
+
 modkey = "Mod4"
 
 globalkeys = gears.table.join(
@@ -162,7 +166,7 @@ globalkeys = gears.table.join(
                   }
               end,
               {description = "lua execute prompt", group = "awesome"}),
-    awful.key({ modkey }, "r", function() menubar.show() end,
+    awful.key({ modkey }, "r", runpromt,
               {description = "show the menubar", group = "launcher"})
 )
 

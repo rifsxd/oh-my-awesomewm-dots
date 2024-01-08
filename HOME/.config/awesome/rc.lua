@@ -12,4 +12,3 @@ require("system.menu")
 require("system.panel")
 require("system.base")
 require("system.autostart")
-
