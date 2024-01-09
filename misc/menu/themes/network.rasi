@@ -6,7 +6,7 @@ configuration {
 	click-to-exit: 					true;
 }
 
-@import "colors.rasi"
+@import "colors-gruv.rasi"
 
 window {
     transparency:                   "real";

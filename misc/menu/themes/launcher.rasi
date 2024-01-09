@@ -13,7 +13,7 @@ configuration {
     display-drun: 					"   Drun";
 }
 
-@import "colors.rasi"
+@import "colors-gruv.rasi"
 
 * {
     font:                           "JetBrainsMono Font 10";

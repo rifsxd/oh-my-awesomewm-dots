@@ -4,6 +4,6 @@ foreground:			#0a0013;
 selected:			#e0b1ff;
 highlight:			#0a0013;
 urgent:				#ff5c5c;
-on:				#88ff78;
+on:				    #88ff78;
 off:				#ff5c5c;
 }

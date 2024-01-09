@@ -11,7 +11,7 @@ configuration {
     display-emoji: 				"󰞅 Emoji";
 }
 
-@import "colors.rasi"
+@import "colors-gruv.rasi"
 
 * {
     font:                           "JetBrainsMono Nerd Font 10";
