@@ -10,7 +10,7 @@ local screenshot = require("screenshot")
 local dpi = xresources.apply_dpi
 local freedesktop = require("freedesktop")
 
-local comp_path = string.format("%s/.config/awesome/config/compositor/compfy.conf", os.getenv("HOME"))
+local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
 
 local conf_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
 
@@ -46,8 +46,8 @@ mypowermenu = {
 }
 
 mymiscmenu = {
-   { "compositor on", function () awful.spawn.with_shell("compfy --config ~/.config/awesome/config/compositor/compfy.conf") end },
-   { "compositor off", function () awful.spawn.with_shell("killall compfy") end },
+   { "compositor on", function () awful.spawn.with_shell("picom --config ~/.config/awesome/config/compositor/compfy.conf") end },
+   { "compositor off", function () awful.spawn.with_shell("killall picom") end },
    { "compositor conf", editor_cmd .. " " .. comp_path },
    { "network manager", function () awful.spawn.with_shell(network) end },
 }
