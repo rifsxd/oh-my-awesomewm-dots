@@ -9,8 +9,8 @@ local beautiful = require("beautiful")
 bling.widget.task_preview.enable {
     x = 20,                    -- The x-coord of the popup
     y = 20,                    -- The y-coord of the popup
-    height = dpi(400),              -- The height of the popup
-    width = dpi(400),               -- The width of the popup
+    height = dpi(300),              -- The height of the popup
+    width = dpi(300),               -- The width of the popup
     placement_fn = function(c) -- Place the widget using awful.placement (this overrides x & y)
         awful.placement.bottom(c, {
             margins = {
@@ -45,8 +45,6 @@ bling.widget.task_preview.enable {
         layout = wibox.layout.fixed.vertical
     }
 }
-
-
 
 awful.screen.connect_for_each_screen(function(s)
 

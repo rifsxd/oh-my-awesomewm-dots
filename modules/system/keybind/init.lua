@@ -20,6 +20,8 @@ record = "obs --startrecording --minimize-to-tray"
 
 modkey = "Mod4"
 
+altkey = "Mod1"
+
 globalkeys = gears.table.join(
     awful.key({ modkey }, "v", function () awful.spawn("pavucontrol") end,
 	  {description = "open audio mixer", group = "launcher"}),
@@ -101,6 +103,10 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+    
+    awful.key({altkey}, "Tab", function()
+            awesome.emit_signal("bling::window_switcher::turn_on")
+    end, {description = "Window Switcher", group = "client"}),
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
