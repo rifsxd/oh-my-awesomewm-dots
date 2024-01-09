@@ -33,14 +33,7 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons
     }
 
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
-    }
-
     s.mywibox = awful.wibar({ position = "top", screen = s, ontop = true })
-    s.mynewwibox = awful.wibar({ position = "bottom", screen = s, ontop = true })
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -70,14 +63,5 @@ awful.screen.connect_for_each_screen(function(s)
 	          spacing = 10,
         },
     }
-    s.mynewwibox:setup {
-        layout = wibox.layout.align.horizontal,
-	      {
-	        layout = wibox.layout.fixed.horizontal,
-	      },
-	      s.mytasklist,
-	      {
-	        layout = wibox.layout.fixed.horizontal,
-	      },
-    }
+
 end)

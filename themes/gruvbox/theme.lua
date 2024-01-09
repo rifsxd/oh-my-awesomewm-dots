@@ -143,4 +143,10 @@ theme.naughty_fg_urgent = theme.fg_urgent
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = "Gruvbox-Material-Dark"
 
+theme.task_preview_widget_border_radius = 0        -- Border radius of the widget (With AA)
+theme.task_preview_widget_bg = theme.bg_normal           -- The bg color of the widget
+theme.task_preview_widget_border_color = theme.border_focus -- The border color of the widget
+theme.task_preview_widget_border_width = dpi(2)         -- The border width of the widget
+theme.task_preview_widget_margin = 0
+
 return theme

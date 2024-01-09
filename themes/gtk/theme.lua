@@ -356,6 +356,12 @@ theme.wired = theme.wd .. "icons/wired.png"
 theme.wired_na = theme.wd .. "icons/wired_na.png"
 theme.vpn = theme.wd .. "icons/vpn.png"
 
+theme.task_preview_widget_border_radius = 0        -- Border radius of the widget (With AA)
+theme.task_preview_widget_bg = theme.bg_normal           -- The bg color of the widget
+theme.task_preview_widget_border_color = theme.border_focus -- The border color of the widget
+theme.task_preview_widget_border_width = dpi(theme.gtk.button_border_width or 1)        -- The border width of the widget
+theme.task_preview_widget_margin = 0
+
 return theme
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80:foldmethod=marker
