@@ -57,7 +57,7 @@ myscreenshotmenu = {
    { "scrnshot sel", scrot_selection },
    { "scrnshot win", scrot_window },
    { "scrnshot delay", scrot_delay },
-   { "scrncord now", function () awful.spawn.with_shell(record) end },
+   { "scrncord full", function () awful.spawn.with_shell(record) end },
 }
 
 mygamingmenu = {
