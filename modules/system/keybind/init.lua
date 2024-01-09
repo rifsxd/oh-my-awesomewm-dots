@@ -4,6 +4,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local screenshot = require("screenshot")
 local menubar = require("menubar")
+require("system.scrhpad")
 
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
@@ -78,8 +79,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "z", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
     
-    awful.key({ modkey,           }, "x", function () myrebootmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    awful.key({ modkey,           }, "x", function () term_scratch:toggle() end,
+              {description = "toggle scratchpad", group = "awesome"}),
     
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
