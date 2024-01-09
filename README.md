@@ -1,8 +1,10 @@
 # oh-my-awesomewm-dots
  warm & comfy awm+widgets+themes rice
 
- * Gruvbox
- <img src="/assets/gruvbox-default.png">
+ 
+
+ * Default Theme - Gruvbox
+ <img src="/assets/default-preview.png">
  
  * Gtk
  <img src="/assets/gtk3.png">
