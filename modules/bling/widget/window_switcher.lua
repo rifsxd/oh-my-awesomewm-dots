@@ -170,7 +170,7 @@ local function draw_widget(
                     --{
                       --  {
                         --    id = "icon_role",
-                            widget = wibox.widget.imagebox,
+                            --widget = wibox.widget.imagebox,
                         --},
                         --forced_width = icon_width,
                         --valign = icon_valign,
