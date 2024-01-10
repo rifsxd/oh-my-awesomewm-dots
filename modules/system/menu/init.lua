@@ -46,7 +46,7 @@ mypowermenu = {
 }
 
 mymiscmenu = {
-   { "compositor on", function () awful.spawn.with_shell("picom --config ~/.config/awesome/config/compositor/compfy.conf") end },
+   { "compositor on", function () awful.spawn.with_shell("picom --config ~/.config/awesome/config/compositor/picom.conf") end },
    { "compositor off", function () awful.spawn.with_shell("killall picom") end },
    { "compositor conf", editor_cmd .. " " .. comp_path },
    { "network manager", function () awful.spawn.with_shell(network) end },
