@@ -45,7 +45,7 @@ globalkeys = gears.table.join(
               {description="turn on compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall picom") end,
               {description="turn off compositor", group="launcher"}),
-    awful.key({ modkey, "Shift"   }, "Escape", function () awful.spawn.with_shell("betterlockscreen -l blur") end,
+    awful.key({ altkey, "Control"   }, "l", function () awful.spawn.with_shell("betterlockscreen -l blur") end,
               {description="lock the screen", group="launcher"}),
 
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pipewire sset Master 5%+", false) end),
