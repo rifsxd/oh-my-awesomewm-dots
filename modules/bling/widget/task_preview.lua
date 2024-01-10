@@ -54,13 +54,13 @@ local function draw_widget(
             {
                 {
                     {
-                        {
-                            id = "icon_role",
-                            resize = true,
-                            forced_height = dpi(20),
-                            forced_width = dpi(20),
-                            widget = wibox.widget.imagebox,
-                        },
+                        --{
+                        --    id = "icon_role",
+                         --   resize = true,
+                         --   forced_height = dpi(20),
+                         --   forced_width = dpi(20),
+                         --   widget = wibox.widget.imagebox,
+                        --},
                         {
                             {
                                 id = "name_role",

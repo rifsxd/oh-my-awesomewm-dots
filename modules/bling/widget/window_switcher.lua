@@ -122,15 +122,15 @@ local function draw_widget(
                             widget = wibox.container.margin,
                         },
                         {
-                            {
-                                {
-                                    id = "icon_role",
-                                    widget = wibox.widget.imagebox,
-                                },
-                                forced_width = icon_width,
-                                valign = icon_valign,
-                                widget = wibox.container.place,
-                            },
+                            --{
+                                --{
+                                 --   id = "icon_role",
+                                --    widget = wibox.widget.imagebox,
+                                --},
+                               -- forced_width = icon_width,
+                               -- valign = icon_valign,
+                               -- widget = wibox.container.place,
+                            --},
                             {
                                 {
                                     forced_width = name_forced_width,
@@ -167,15 +167,15 @@ local function draw_widget(
                 forced_width = client_width,
                 forced_height = client_height,
                 {
-                    {
-                        {
-                            id = "icon_role",
+                    --{
+                      --  {
+                        --    id = "icon_role",
                             widget = wibox.widget.imagebox,
-                        },
-                        forced_width = icon_width,
-                        valign = icon_valign,
-                        widget = wibox.container.place,
-                    },
+                        --},
+                        --forced_width = icon_width,
+                        --valign = icon_valign,
+                        --widget = wibox.container.place,
+                    --},
                     {
                         {
                             forced_width = name_forced_width,
