@@ -1,6 +1,6 @@
 pcall(require, "luarocks.loader")
 
-package.path = package.path .. ";/home/rifsxd/.config/awesome/modules/?.lua;/home/rifsxd/.config/awesome/modules/?/init.lua;/home/rifsxd/.config/awesome/widgets/?.lua;/home/rifsxd/.config/awesome/widgets/?/init.lua"
+package.path = package.path .. ";/home/rifsxd/.config/awesome/modules/?.lua;/home/rifsxd/.config/awesome/modules/?/init.lua"
 
 require("system.keybind")
 require("system.layout")
