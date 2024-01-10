@@ -13,6 +13,9 @@ local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf
 
 local conf_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
 
+require("system.theming")
+require("system.wallpaper")
+
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
 filemanager = "thunar"
