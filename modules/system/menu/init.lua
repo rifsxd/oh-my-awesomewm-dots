@@ -5,9 +5,8 @@ local beautiful = require("beautiful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
-local xresources = require("beautiful.xresources")
+local dpi = require("beautiful.xresources").apply_dpi
 local screenshot = require("screenshot")
-local dpi = xresources.apply_dpi
 local freedesktop = require("freedesktop")
 
 local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
