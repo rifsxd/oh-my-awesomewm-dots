@@ -19,6 +19,7 @@ local widget_types = {
     icon = require("volume.widgets.icon-widget"),
     arc = require("volume.widgets.arc-widget"),
     horizontal_bar = require("volume.widgets.horizontal-bar-widget"),
+    horizontal_bar_text = require("volume.widgets.horizontal-bar-text-widget"),
     vertical_bar = require("volume.widgets.vertical-bar-widget")
 }
 local volume = {}

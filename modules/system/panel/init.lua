@@ -8,6 +8,16 @@ local net_widget = require("net")
 local screen_width = awful.screen.focused().geometry.width
 local mytextclock = wibox.widget.textclock(" %a, %b %d, %Y - %I:%M %p ")
 
+
+local volume = volume_widget({
+    font        = 'JetBrainsMono Nerd Font 10',
+    widget_type = 'horizontal_bar_text',
+})
+
+local spotify = spotify_widget({
+    font = 'JetBrainsMono Nerd Font 10',
+})
+
 local calendar_widget = wibox.widget {
     date         = os.date('*t'),
     font         = 'JetBrainsMono Nerd Font 10',
@@ -87,17 +97,13 @@ awful.screen.connect_for_each_screen(function(s)
         },
 	      {
             layout = wibox.layout.fixed.horizontal,
-	          spotify_widget({
-               font = 'JetBrainsMono Nerd Font 10',
-            }),
+	        spotify,
         },
         {
             layout = wibox.layout.fixed.horizontal,
 	          wibox.widget.systray(),
       	    net_wired,
-            volume_widget{
-              widget_type = 'horizontal_bar'
-	          },
+              volume,
 	          mytextclock, 
             s.mylayoutbox,
 	          spacing = 10,

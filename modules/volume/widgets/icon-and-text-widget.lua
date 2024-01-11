@@ -3,7 +3,7 @@ local beautiful = require('beautiful')
 
 local widget = {}
 
-local ICON_DIR = os.getenv("HOME") .. '/.config/awesome/awesome-wm-widgets/volume-widget/icons/'
+local ICON_DIR = os.getenv("HOME") .. '/.config/awesome/modules/volume/icons/'
 
 function widget.get_widget(widgets_args)
     local args = widgets_args or {}
