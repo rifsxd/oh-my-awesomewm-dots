@@ -1,13 +1,53 @@
 local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
-local menubar = require("menubar")
 local volume_widget = require("volume")
 local spotify_widget = require("spotify")
 local net_widget = require("net")
 
+local screen_width = awful.screen.focused().geometry.width
+local mytextclock = wibox.widget.textclock(" %a, %b %d, %Y - %I:%M %p ")
 
-mytextclock = wibox.widget.textclock(" %a, %b %d, %Y - %I:%M %p ")
+local calendar_widget = wibox.widget {
+    date         = os.date('*t'),
+    font         = 'JetBrainsMono Nerd Font 10',
+    start_sunday = true,
+    long_weekdays = true,
+    widget       = wibox.widget.calendar.month
+}
+
+local calendar_wibox = wibox({
+    ontop = true,
+    visible = false,
+    type = "dropdown_menu",
+    height = 190,
+    width = 260,
+    x = screen_width - 315,
+    y = 34,
+})
+
+local calendar_layout = wibox.layout.margin(calendar_widget, 10, 10, 10, 10)
+
+calendar_wibox:setup {
+    nil,
+    {
+        nil,
+        calendar_layout,
+        nil,
+        expand = "none",
+        layout = wibox.layout.align.horizontal,
+    },
+    nil,
+    layout = wibox.layout.align.vertical,
+}
+
+mytextclock:connect_signal("mouse::enter", function()
+    calendar_wibox.visible = true
+end)
+
+mytextclock:connect_signal("mouse::leave", function()
+    calendar_wibox.visible = false
+end)
 
 net_wired = net_widget.indicator({
     interfaces  = {"enp5s0"},
