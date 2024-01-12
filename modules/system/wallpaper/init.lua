@@ -3,6 +3,7 @@ local gears = require("gears")
 local json = require("json")
 local surface = require("gears.surface")
 local awful = require("awful")
+local naughty = require("naughty")
 
 config_file_path = string.format("%s/.config/awesome/config/theme/config.json", os.getenv("HOME"))
 
@@ -83,10 +84,9 @@ function generateWallMenu()
     return wallMenu
 end
 
-local naughty = require("naughty")
+local blurred = false;
 
-function set_wallpaper(screen)
-    -- Check if a wallpaper is defined in the Beautiful theme
+local function get_wallpaper(screen)
     if beautiful.wallpaper then
         -- Get the wallpaper value, which could be a string or a function
         local wallpaper = beautiful.wallpaper
@@ -97,8 +97,8 @@ function set_wallpaper(screen)
         end
 
         -- Construct the paths for regular and blurred wallpapers
-        local wallpaper_path = string.format("%s/.config/awesome/walls/%s.png", os.getenv("HOME"), chosen_wall)
-        local blurred_wallpaper_path = string.format("%s/.config/awesome/walls/blur/%s_blurred.png", os.getenv("HOME"), chosen_wall)
+        wallpaper_path = string.format("%s/.config/awesome/walls/%s.png", os.getenv("HOME"), chosen_wall)
+        blurred_wallpaper_path = string.format("%s/.config/awesome/walls/blur/%s_blurred.png", os.getenv("HOME"), chosen_wall)
 
         -- Check if the blurred wallpaper doesn't exist, then create it
         if not gears.filesystem.file_readable(blurred_wallpaper_path) then
@@ -110,46 +110,53 @@ function set_wallpaper(screen)
                 
             end)
         end
-
-        -- Check if the screen has clients (apps) open
-        if screen and screen.selected_tag and #screen.selected_tag:clients() > 0 then
-            -- Use the pre-generated blurred wallpaper if clients are present
-            gears.wallpaper.maximized(blurred_wallpaper_path, screen, true)
-        else
-            -- No clients in the screen, use the regular wallpaper
-            gears.wallpaper.maximized(wallpaper_path, screen, true)
-        end
     end
 end
 
--- Automatically apply wallpaper changes when the selected tag changes
+local function unblur(screen)
+
+    get_wallpaper()
+    
+    if blurred then
+        gears.wallpaper.maximized(wallpaper_path, screen, true)
+        blurred = false
+    end
+    
+end
+
+local function blur(screen)
+
+    get_wallpaper()
+
+    if not blurred then
+            gears.wallpaper.maximized(blurred_wallpaper_path, screen, true)
+            blurred = true
+    end
+end
+
+-- blur / unblur on tag change
 tag.connect_signal('property::selected', function(t)
-    set_wallpaper(t.screen)  -- Set wallpaper based on the screen associated with the selected tag
-end)
-
--- Handle wallpaper adjustments when a new client (application window) is opened
-client.connect_signal("manage", function(c)
-    set_wallpaper(c.screen)  -- Set wallpaper based on the screen associated with the new client
-end)
-
--- Handle wallpaper adjustments when a client (application window) is closed
-client.connect_signal("unmanage", function(c)
-    set_wallpaper(c.screen)  -- Set wallpaper based on the screen associated with the closed client
-end)
-
--- this function gets the wallpaper from the theme.lua
---function set_wallpaper(s)
-
---    if beautiful.wallpaper then
---        local wallpaper = beautiful.wallpaper
-
---        if type(wallpaper) == "function" then
---            wallpaper = wallpaper(s)
---        end
---        gears.wallpaper.maximized(wallpaper, s, true)
---    end
---end
-
-screen.connect_signal("property::geometry", set_wallpaper)
-
-set_wallpaper(s)
+    -- if tag has clients
+    for _ in pairs(t:clients()) do
+       blur()
+       return
+    end
+    -- if tag has no clients
+    unblur()
+ end)
+ 
+ -- check if wallpaper should be blurred on client open
+ client.connect_signal("manage", function(c)
+    blur()
+ end)
+ 
+ -- check if wallpaper should be unblurred on client close
+ client.connect_signal("unmanage", function(c)
+    local t = awful.screen.focused().selected_tag
+    -- check if any open clients
+    for _ in pairs(t:clients()) do
+       return
+    end
+    -- unblur if no open clients
+    unblur()
+ end)
