@@ -6,7 +6,43 @@ local bling = require("bling")
 local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
 
+local widget_structure = {
+    {
+        {
+            --{
+            --    id = "icon_role",
+            --    resize = true,
+            --    forced_height = dpi(20),
+            --    forced_width = dpi(20),
+            --    widget = wibox.widget.imagebox,
+            --},
+            {
+                {
+                    id = "name_role",
+                    align = "center",
+                    widget = wibox.widget.textbox,
+                },
+                left = dpi(4),
+                right = dpi(4),
+                widget = wibox.container.margin,
+            },
+            layout = wibox.layout.align.horizontal,
+        },
+        widget = wibox.container.margin,
+        margins = 5
+    },
+    {
+        id = 'image_role', -- The client preview
+        resize = true,
+        valign = 'center',
+        halign = 'center',
+        widget = wibox.widget.imagebox,
+    },
+    layout = wibox.layout.fixed.vertical
+}
+
 bling.widget.task_preview.enable {
+    structure = widget_structure,
     x = 20,                    -- The x-coord of the popup
     y = 20,                    -- The y-coord of the popup
     height = dpi(300),              -- The height of the popup
@@ -14,36 +50,11 @@ bling.widget.task_preview.enable {
     placement_fn = function(c) -- Place the widget using awful.placement (this overrides x & y)
         awful.placement.bottom(c, {
             margins = {
-                bottom = 30
+                bottom = 35
             }
         })
     end,
     -- Your widget will automatically conform to the given size due to a constraint container.
-    widget_structure = {
-        {
-            {
-                {
-                    id = 'icon_role',
-                    widget = awful.widget.clienticon, -- The client icon
-                },
-                {
-                    id = 'name_role', -- The client name / title
-                    widget = wibox.widget.textbox,
-                },
-                layout = wibox.layout.flex.horizontal
-            },
-            widget = wibox.container.margin,
-            margins = 5
-        },
-        {
-            id = 'image_role', -- The client preview
-            resize = true,
-            valign = 'center',
-            halign = 'center',
-            widget = wibox.widget.imagebox,
-        },
-        layout = wibox.layout.fixed.vertical
-    }
 }
 
 awful.screen.connect_for_each_screen(function(s)
@@ -97,7 +108,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 
-    s.mynewwibox = awful.wibar({ position = "bottom", screen = s, ontop = true })
+    s.mynewwibox = awful.wibar({ position = "bottom", screen = s, ontop = true, bg = gears.color.transparent })
 
     s.mynewwibox:setup {
         layout = wibox.layout.align.horizontal,

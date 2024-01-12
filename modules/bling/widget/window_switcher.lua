@@ -210,7 +210,7 @@ local enable = function(opts)
     local opts = opts or {}
 
     local type = opts.type or "thumbnail"
-    local background = beautiful.window_switcher_widget_bg or "#000000"
+    local background = gears.color.transparent
     local border_width = beautiful.window_switcher_widget_border_width or dpi(3)
     local border_radius = beautiful.window_switcher_widget_border_radius
         or dpi(0)

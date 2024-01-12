@@ -26,6 +26,8 @@ editor_cmd = terminal .. " -e " .. editor
 network = "~/.config/awesome/misc/menu/bin/network"
 record = "obs --startrecording --minimize-to-tray"
 
+beautiful.menu_bg_normal = gears.color.transparent
+
 function runpromt()
    menubar.show()
 end
