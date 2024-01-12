@@ -121,29 +121,6 @@ local function draw_widget(
                             margins = thumbnail_margins,
                             widget = wibox.container.margin,
                         },
-                        {
-                            --{
-                                --{
-                                 --   id = "icon_role",
-                                --    widget = wibox.widget.imagebox,
-                                --},
-                               -- forced_width = icon_width,
-                               -- valign = icon_valign,
-                               -- widget = wibox.container.place,
-                            --},
-                            {
-                                {
-                                    forced_width = name_forced_width,
-                                    valign = name_valign,
-                                    id = "text_role",
-                                    widget = wibox.widget.textbox,
-                                },
-                                margins = name_margins,
-                                widget = wibox.container.margin,
-                            },
-                            spacing = client_icon_horizontal_spacing,
-                            layout = wibox.layout.fixed.horizontal,
-                        },
                         layout = wibox.layout.flex.vertical,
                     },
                 },
@@ -167,26 +144,6 @@ local function draw_widget(
                 forced_width = client_width,
                 forced_height = client_height,
                 {
-                    --{
-                      --  {
-                        --    id = "icon_role",
-                            --widget = wibox.widget.imagebox,
-                        --},
-                        --forced_width = icon_width,
-                        --valign = icon_valign,
-                        --widget = wibox.container.place,
-                    --},
-                    {
-                        {
-                            forced_width = name_forced_width,
-                            valign = name_valign,
-                            id = "text_role",
-                            widget = wibox.widget.textbox,
-                        },
-                        margins = name_margins,
-                        widget = wibox.container.margin,
-                    },
-                    spacing = client_icon_horizontal_spacing,
                     layout = wibox.layout.fixed.horizontal,
                 },
             },
