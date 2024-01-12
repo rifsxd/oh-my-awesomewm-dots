@@ -1,7 +1,6 @@
 local beautiful = require("beautiful")
 local gears = require("gears")
 local json = require("json")
-local surface = require("gears.surface")
 local awful = require("awful")
 local naughty = require("naughty")
 

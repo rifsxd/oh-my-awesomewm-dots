@@ -6,15 +6,14 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local dpi = require("beautiful.xresources").apply_dpi
-local screenshot = require("screenshot")
+require("system.screenshot")
 local freedesktop = require("freedesktop")
+require("system.theming")
+require("system.wallpaper")
 
 local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
 
 local conf_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
-
-require("system.theming")
-require("system.wallpaper")
 
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
