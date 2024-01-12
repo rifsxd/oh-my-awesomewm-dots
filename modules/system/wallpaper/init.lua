@@ -86,6 +86,7 @@ end
 
 local blurred = false;
 
+
 local function get_wallpaper(screen)
     if beautiful.wallpaper then
         -- Get the wallpaper value, which could be a string or a function
@@ -112,6 +113,13 @@ local function get_wallpaper(screen)
         end
     end
 end
+
+local function init_wall(screen)
+    get_wallpaper()
+    gears.wallpaper.maximized(wallpaper_path, screen, true)
+end
+
+init_wall()
 
 local function unblur(screen)
 
