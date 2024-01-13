@@ -14,6 +14,8 @@ theme.pause_icon = theme.wd .. "icons/pause.png"
 theme.wired = theme.wd .. "icons/wired.png"
 theme.wired_na = theme.wd .. "icons/wired_na.png"
 theme.vpn = theme.wd .. "icons/vpn.png"
+theme.systray_visible_icon = theme.wd .. "icons/systray_visible_icon.png"
+theme.systray_hidden_icon = theme.wd .. "icons/systray_hidden_icon.png"
 
 -- fonts
 theme.base_font     = "JetBrainsMono Nerd Font 10"

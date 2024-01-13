@@ -4,10 +4,10 @@ local wibox = require("wibox")
 local volume_widget = require("volume")
 local spotify_widget = require("spotify")
 local net_widget = require("net")
+require("system.systray")
 
 local screen_width = awful.screen.focused().geometry.width
 local mytextclock = wibox.widget.textclock(" %a, %b %d, %Y - %I:%M %p ")
-
 
 local volume = volume_widget({
     font        = 'JetBrainsMono Nerd Font 10',
@@ -102,7 +102,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-	          wibox.widget.systray(),
+            systray_toggle,
       	    net_wired,
               volume,
 	          mytextclock, 

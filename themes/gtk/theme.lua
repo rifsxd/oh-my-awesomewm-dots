@@ -355,6 +355,8 @@ theme.pause_icon = theme.wd .. "icons/pause.png"
 theme.wired = theme.wd .. "icons/wired.png"
 theme.wired_na = theme.wd .. "icons/wired_na.png"
 theme.vpn = theme.wd .. "icons/vpn.png"
+theme.systray_visible_icon = theme.wd .. "icons/systray_visible_icon.png"
+theme.systray_hidden_icon = theme.wd .. "icons/systray_hidden_icon.png"
 
 theme.task_preview_widget_border_radius = 0        -- Border radius of the widget (With AA)
 theme.task_preview_widget_bg = theme.bg_normal           -- The bg color of the widget
