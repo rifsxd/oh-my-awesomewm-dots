@@ -2,10 +2,16 @@ local gears = require("gears")
 local awful = require("awful")
 local naughty = require("naughty")
 
-local timestamp = os.date("%F_%T")
-local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
+local function copy_to_clipboard(image_path)
+    local cmd = "xclip -selection clipboard -t image/png -i " .. image_path
+    awful.spawn.easy_async_with_shell(cmd)
+end
+
 
 function scrot_full()
+
+    local timestamp = os.date("%F_%T")
+    local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
     
     local cmd = "scrot " .. screenshot_path
     
@@ -20,11 +26,16 @@ function scrot_full()
                 text = "Took a screenshot of the entire screen",
                 timeout = 2.0
             })
+            
+            copy_to_clipboard(screenshot_path)
         end
     end)
 end
 
 function scrot_window()
+
+    local timestamp = os.date("%F_%T")
+    local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
     
     local cmd = "scrot -u " .. screenshot_path
 
@@ -39,11 +50,16 @@ function scrot_window()
                 text = "Took a screenshot of the focused window",
                 timeout = 2.0
             })
+
+            copy_to_clipboard(screenshot_path)
         end
     end)
 end
 
 function scrot_selection()
+
+    local timestamp = os.date("%F_%T")
+    local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
 
     local delay = 0.5
     local timer = gears.timer {
@@ -64,6 +80,8 @@ function scrot_selection()
                         text = "Took a screenshot of the selection",
                         timeout = 2.0
                     })
+
+                    copy_to_clipboard(screenshot_path)
                 end
             end)
         end
@@ -71,6 +89,9 @@ function scrot_selection()
 end
 
 function scrot_delay()
+
+    local timestamp = os.date("%F_%T")
+    local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
     
     local prompt = "Choose delay (in seconds):"
     awful.prompt.run {
@@ -96,6 +117,8 @@ function scrot_delay()
                                     text = "Took a screenshot with " .. delay .. " seconds delay",
                                     timeout = 2.0
                                 })
+
+                                copy_to_clipboard(screenshot_path)
                             end
                         end)
                     end
