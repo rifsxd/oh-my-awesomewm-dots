@@ -7,10 +7,10 @@ local function copy_to_clipboard(image_path)
     awful.spawn.easy_async_with_shell(cmd)
 end
 
-
 function scrot_full()
 
-    local timestamp = os.date("%F_%T")
+    local unique_id = tostring(math.random(1000))
+    local timestamp = os.date("%F_%T") .. ("_") .. unique_id
     local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
     
     local cmd = "scrot " .. screenshot_path
@@ -34,7 +34,8 @@ end
 
 function scrot_window()
 
-    local timestamp = os.date("%F_%T")
+    local unique_id = tostring(math.random(1000))
+    local timestamp = os.date("%F_%T") .. ("_") .. unique_id
     local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
     
     local cmd = "scrot -u " .. screenshot_path
@@ -58,7 +59,8 @@ end
 
 function scrot_selection()
 
-    local timestamp = os.date("%F_%T")
+    local unique_id = tostring(math.random(1000))
+    local timestamp = os.date("%F_%T") .. ("_") .. unique_id
     local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
 
     local delay = 0.5
@@ -90,7 +92,8 @@ end
 
 function scrot_delay()
 
-    local timestamp = os.date("%F_%T")
+    local unique_id = tostring(math.random(1000))
+    local timestamp = os.date("%F_%T") .. ("_") .. unique_id
     local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
     
     local prompt = "Choose delay (in seconds):"
