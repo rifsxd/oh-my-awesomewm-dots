@@ -1,5 +1,5 @@
 * {
-background:			#CCC4FF;
+background:			#CCC4FF80;
 foreground:			#0a0013;
 selected:			#e0b1ff;
 highlight:			#0a0013;

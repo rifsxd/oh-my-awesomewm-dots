@@ -1,6 +1,8 @@
 pcall(require, "luarocks.loader")
 
-package.path = package.path .. ";/home/rifsxd/.config/awesome/modules/?.lua;/home/rifsxd/.config/awesome/modules/?/init.lua"
+local home_dir = os.getenv("HOME")
+
+package.path = package.path .. ";" .. home_dir .. "/.config/awesome/modules/?.lua;" .. home_dir .. "/.config/awesome/modules/?/init.lua"
 
 require("system.autostart")
 require("system.base")
