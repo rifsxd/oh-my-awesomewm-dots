@@ -15,7 +15,7 @@ local systray_wibox = wibox({
     type = "dropdown_menu",
     height = 40,
     width = 200,
-    x = screen_width - 618,
+    x = screen_width - 570,
     y = 34,
     bg = gears.color.transparent,
 })
