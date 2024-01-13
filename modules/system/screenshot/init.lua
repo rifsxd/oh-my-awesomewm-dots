@@ -22,15 +22,23 @@ function scrot_full()
                 timeout = 2.0
             })
         else
+
+            local screenshot_image = gears.surface.load(screenshot_path)
+
+            local preview_width = 200
+
             naughty.notify({
                 text = "Took a screenshot of the entire screen",
-                timeout = 2.0
+                timeout = 2.0,
+                icon = screenshot_image,
+                icon_size = preview_width
             })
-            
+
             copy_to_clipboard(screenshot_path)
         end
     end)
 end
+
 
 function scrot_window()
 
@@ -47,9 +55,16 @@ function scrot_window()
                 timeout = 2.0
             })
         else
+
+            local screenshot_image = gears.surface.load(screenshot_path)
+
+            local preview_width = 200
+
             naughty.notify({
                 text = "Took a screenshot of the focused window",
-                timeout = 2.0
+                timeout = 2.0,
+                icon = screenshot_image,
+                icon_size = preview_width
             })
 
             copy_to_clipboard(screenshot_path)
@@ -78,9 +93,16 @@ function scrot_selection()
                         timeout = 2.0
                     })
                 else
+
+                    local screenshot_image = gears.surface.load(screenshot_path)
+
+                    local preview_width = 200
+
                     naughty.notify({
                         text = "Took a screenshot of the selection",
-                        timeout = 2.0
+                        timeout = 2.0,
+                        icon = screenshot_image,
+                        icon_size = preview_width
                     })
 
                     copy_to_clipboard(screenshot_path)
@@ -116,9 +138,16 @@ function scrot_delay()
                                     timeout = 2.0
                                 })
                             else
+
+                                local screenshot_image = gears.surface.load(screenshot_path)
+
+                                local preview_width = 200
+
                                 naughty.notify({
                                     text = "Took a screenshot with " .. delay .. " seconds delay",
-                                    timeout = 2.0
+                                    timeout = 2.0,
+                                    icon = screenshot_image,
+                                    icon_size = preview_width
                                 })
 
                                 copy_to_clipboard(screenshot_path)
