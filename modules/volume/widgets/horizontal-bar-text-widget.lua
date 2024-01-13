@@ -16,7 +16,7 @@ function widget.get_widget(widgets_args)
     local margins = args.margins or 10
     local shape = args.shape or 'bar'
     local with_icon = args.with_icon == true and true or false
-    local font = args.font or beautiful.font
+    local font = beautiful.font
     local icon_dir = args.icon_dir or ICON_DIR
 
     local bar = wibox.widget {
