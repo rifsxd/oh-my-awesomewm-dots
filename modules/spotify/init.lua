@@ -1,6 +1,7 @@
 local awful = require("awful")
 local wibox = require("wibox")
 local watch = require("awful.widget.watch")
+local gears = require("gears")
 local beautiful = require("beautiful")
 
 local function ellipsize(text, length)
@@ -145,6 +146,7 @@ local function worker(user_args)
         local spotify_tooltip = awful.tooltip {
             mode = 'outside',
             preferred_positions = {'bottom'},
+            bg = gears.color.transparent,
          }
 
         spotify_tooltip:add_to_object(spotify_widget)
