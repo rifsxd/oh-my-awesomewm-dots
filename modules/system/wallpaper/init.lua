@@ -86,7 +86,7 @@ end
 local blurred = false;
 
 
-local function get_wallpaper(screen)
+function get_wallpaper(screen)
     if beautiful.wallpaper then
         -- Get the wallpaper value, which could be a string or a function
         local wallpaper = beautiful.wallpaper
@@ -110,6 +110,8 @@ local function get_wallpaper(screen)
                 
             end)
         end
+
+        global_wallpaper_path = wallpaper_path
     end
 end
 

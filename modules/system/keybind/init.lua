@@ -5,6 +5,7 @@ require("awful.hotkeys_popup.keys")
 require("system.screenshot")
 local menubar = require("menubar")
 require("system.scrhpad")
+require('system.lockscreen')
 
 local comp_bin = string.format("%s/.config/awesome/misc/compositor/bin/picom", os.getenv("HOME"))
 
@@ -49,7 +50,7 @@ globalkeys = gears.table.join(
               {description="turn on compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall picom") end,
               {description="turn off compositor", group="launcher"}),
-    awful.key({ altkey, "Control"   }, "l", function () awful.spawn.with_shell("betterlockscreen -l blur") end,
+    awful.key({ altkey, "Control"   }, "l", function() awful.spawn("awesome-client '_G.show_lockscreen()'", false) end,
               {description="lock the screen", group="launcher"}),
 
     awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pipewire sset Master 5%+", false) end),

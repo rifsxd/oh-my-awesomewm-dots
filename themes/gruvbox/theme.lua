@@ -7,6 +7,7 @@ theme.wd = "~/.config/awesome/themes/gruvbox/"
 
 -- wallpaper
 theme.wallpaper = theme.wd .. "wallpapers/background.png"
+
 -- awesome icon
 theme.awesome_icon = theme.wd .. "icons/aorus.png"
 theme.play_icon = theme.wd .. "icons/play.png"
