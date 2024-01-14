@@ -1,6 +1,5 @@
 local gears = require("gears")
 local awful = require("awful")
-local wibox = require("wibox")
 local beautiful = require("beautiful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
@@ -10,6 +9,8 @@ require("system.screenshot")
 local freedesktop = require("freedesktop")
 require("system.theming")
 require("system.wallpaper")
+
+local comp_bin = string.format("%s/.config/awesome/misc/compositor/bin/picom", os.getenv("HOME"))
 
 local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
 
@@ -49,7 +50,7 @@ mypowermenu = {
 }
 
 mymiscmenu = {
-   { "compositor on", function () awful.spawn.with_shell("picom --config ~/.config/awesome/config/compositor/picom.conf") end },
+   { "compositor on", function () awful.spawn.with_shell(comp_bin .. " --config " .. comp_path) end },
    { "compositor off", function () awful.spawn.with_shell("killall picom") end },
    { "compositor conf", editor_cmd .. " " .. comp_path },
    { "network manager", function () awful.spawn.with_shell(network) end },

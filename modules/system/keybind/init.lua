@@ -6,6 +6,10 @@ require("system.screenshot")
 local menubar = require("menubar")
 require("system.scrhpad")
 
+local comp_bin = string.format("%s/.config/awesome/misc/compositor/bin/picom", os.getenv("HOME"))
+
+local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
+
 awful.util.terminal = "wezterm"
 terminal = "wezterm"
 filemanager = "thunar"
@@ -41,7 +45,7 @@ globalkeys = gears.table.join(
           {description = "Record entire screen", group = "screenshot"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.spawn("gpick -p") end,
               {description = "open a color picker", group = "launcher"}),
-    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell("picom --config ~/.config/awesome/config/compositor/picom.conf") end,
+    awful.key({ modkey,           }, "p", function () awful.spawn.with_shell(comp_bin .. " --config " .. comp_path) end,
               {description="turn on compositor", group="launcher"}),
     awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall picom") end,
               {description="turn off compositor", group="launcher"}),
