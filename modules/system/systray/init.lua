@@ -17,7 +17,7 @@ local systray_wibox = wibox({
     width = 200,
     x = screen_width - 570,
     y = 34,
-    bg = gears.color.transparent,
+    bg = beautiful.bg_normal,
 })
 
 local systray_layout = wibox.layout.margin(systray, 10, 10, 10, 10)

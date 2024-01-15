@@ -16,7 +16,10 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    beautiful.titlebar_bg = gears.color.transparent
+    beautiful.titlebar_bg = beautiful.bg_normal
+    beautiful.titlebar_fg = beautiful.fg_normal
+    beautiful.titlebar_bg_focus = beautiful.bg_focus
+    beautiful.titlebar_fg_focus = beautiful.fg_focus
 
     awful.titlebar(c) : setup {
         {

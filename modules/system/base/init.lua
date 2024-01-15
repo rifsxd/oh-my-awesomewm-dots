@@ -1,8 +1,6 @@
 local gears = require("gears")
 local awful = require("awful")
-local wibox = require("wibox")
 local beautiful = require("beautiful")
-local dpi = require("beautiful.xresources").apply_dpi
 require("awful.autofocus")
 require("system.keybind")
 

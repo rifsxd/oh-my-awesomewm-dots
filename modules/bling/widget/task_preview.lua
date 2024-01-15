@@ -146,7 +146,7 @@ local enable = function(opts)
         placement = placement_fn,
         widget = wibox.container.background, -- A dummy widget to make awful.popup not scream
         input_passthrough = true,
-        bg = "#00000000",
+        bg = beautiful.bg_normal
     })
 
     tag.connect_signal("property::selected", function(t)

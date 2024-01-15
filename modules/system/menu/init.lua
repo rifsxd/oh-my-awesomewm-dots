@@ -9,24 +9,7 @@ require("system.screenshot")
 local freedesktop = require("freedesktop")
 require("system.theming")
 require("system.wallpaper")
-
-local comp_bin = string.format("%s/.config/awesome/misc/compositor/bin/picom", os.getenv("HOME"))
-
-local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
-
-local conf_path = string.format("%s/.config/awesome/", os.getenv("HOME"))
-
-awful.util.terminal = "wezterm"
-terminal = "wezterm"
-filemanager = "thunar"
-ide = "code"
-browser = "firefox"
-editor = os.getenv("EDITOR") or "mousepad"
-editor_cmd = terminal .. " -e " .. editor
-network = "~/.config/awesome/misc/menu/bin/network"
-record = "obs --startrecording --minimize-to-tray"
-
-beautiful.menu_bg_normal = gears.color.transparent
+require("system.var")
 
 function runpromt()
    menubar.show()
@@ -51,7 +34,7 @@ mypowermenu = {
 
 mymiscmenu = {
    { "compositor on", function () awful.spawn.with_shell(comp_bin .. " --config " .. comp_path) end },
-   { "compositor off", function () awful.spawn.with_shell("killall picom") end },
+   { "compositor off", function () awful.spawn.with_shell("killall " .. comp_bin) end },
    { "compositor conf", editor_cmd .. " " .. comp_path },
    { "network manager", function () awful.spawn.with_shell(network) end },
 }

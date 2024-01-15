@@ -146,7 +146,7 @@ local function worker(user_args)
         local spotify_tooltip = awful.tooltip {
             mode = 'outside',
             preferred_positions = {'bottom'},
-            bg = gears.color.transparent,
+            bg = beautiful.bg_normal,
          }
 
         spotify_tooltip:add_to_object(spotify_widget)

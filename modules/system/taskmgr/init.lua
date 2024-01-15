@@ -1,7 +1,6 @@
 local gears = require("gears")
 local awful = require("awful")
 local wibox = require("wibox")
-local menubar = require("menubar")
 local bling = require("bling")
 local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
@@ -107,7 +106,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 
-    s.mynewwibox = awful.wibar({ position = "bottom", screen = s, ontop = true, bg = gears.color.transparent })
+    s.mynewwibox = awful.wibar({ position = "bottom", screen = s, ontop = true })
 
     s.mynewwibox:setup {
         layout = wibox.layout.align.horizontal,

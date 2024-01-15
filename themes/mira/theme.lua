@@ -26,8 +26,8 @@ theme.icon_font     = theme.base_font
 theme.hotkeys_description_font = theme.base_font
 
 -- colors
-theme.bg_normal     = "#CCC4FF"
-theme.bg_focus      = "#e0b1ff"
+theme.bg_normal     = "#CCC4FF80"
+theme.bg_focus      = "#e0b1ff80"
 theme.fg_normal     = "#0a0013"
 theme.fg_urgent     = "#ff5757"
 theme.border_normal = "#d9d3ff"

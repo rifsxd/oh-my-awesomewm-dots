@@ -1,30 +1,35 @@
 local awful = require("awful")
-
-local comp_bin = string.format("%s/.config/awesome/misc/compositor/bin/picom", os.getenv("HOME"))
-
-local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
+require("system.var")
 
 function killProcess(processName)
-    local _, _, pid = io.popen('pgrep ' .. processName)
-    if pid then
-        os.execute('killall ' .. processName)
-    end
+    os.execute('killall ' .. processName)
 end
 
-local processesToKill = {'picom',
- 			 'polkit-gnome-authentication-agent-1',
-			 'blazefetch',
- 			 'unclutter'
+local processesToKill = { 'picom',
+                          'picom_fluid',
+                          'compfy',
+                          'polkit-gnome-authentication-agent-1',
+                          'blazefetch',
+                          'unclutter'
 }
 
 for _, process in ipairs(processesToKill) do
     killProcess(process)
 end
 
-awful.spawn.with_shell(comp_bin .. " --config " .. comp_path)
+function autostart(commands)
+    for _, command in ipairs(commands) do
+        awful.spawn.with_shell(command)
+    end
+end
 
-awful.spawn.with_shell('/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1')
+local autostartArray = {
 
-awful.spawn.with_shell('blazefetch -d')
+    comp_bin .. " --config " .. comp_path,
+    '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1',
+    'blazefetch -d',
+    'unclutter --start-hidden',
 
-awful.spawn.with_shell('unclutter --start-hidden')
+}
+
+autostart(autostartArray)

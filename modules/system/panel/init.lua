@@ -32,9 +32,8 @@ local calendar_wibox = wibox({
     type = "dropdown_menu",
     height = 190,
     width = 260,
-    x = screen_width - 315,
+    x = screen_width - 304,
     y = 34,
-    bg = gears.color.transparent,
 })
 
 local calendar_layout = wibox.layout.margin(calendar_widget, 10, 10, 10, 10)
@@ -84,7 +83,7 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons
     }
 
-    s.mywibox = awful.wibar({ position = "top", screen = s, ontop = true, bg = gears.color.transparent })
+    s.mywibox = awful.wibar({ position = "top", screen = s, ontop = true })
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,

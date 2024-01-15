@@ -4,6 +4,7 @@ local home_dir = os.getenv("HOME")
 
 package.path = package.path .. ";" .. home_dir .. "/.config/awesome/modules/?.lua;" .. home_dir .. "/.config/awesome/modules/?/init.lua"
 
+require("system.var")
 require("system.autostart")
 require("system.base")
 require("system.error")

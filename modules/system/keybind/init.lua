@@ -6,26 +6,7 @@ require("system.screenshot")
 local menubar = require("menubar")
 require("system.scrhpad")
 require('system.lockscreen')
-
-local comp_bin = string.format("%s/.config/awesome/misc/compositor/bin/picom", os.getenv("HOME"))
-
-local comp_path = string.format("%s/.config/awesome/config/compositor/picom.conf", os.getenv("HOME"))
-
-awful.util.terminal = "wezterm"
-terminal = "wezterm"
-filemanager = "thunar"
-browser = "firefox"
-editor = os.getenv("EDITOR") or "mousepad"
-editor_cmd = terminal .. " -e " .. editor
-launcher = "~/.config/awesome/misc/menu/bin/launcher"
-windows = "~/.config/awesome/misc/menu/bin/windows"
-emoji = "~/.config/awesome/misc/menu/bin/emoji"
-network = "~/.config/awesome/misc/menu/bin/network"
-record = "obs --startrecording --minimize-to-tray"
-
-modkey = "Mod4"
-
-altkey = "Mod1"
+require("system.var")
 
 globalkeys = gears.table.join(
     awful.key({ modkey }, "v", function () awful.spawn("pavucontrol") end,
@@ -48,7 +29,7 @@ globalkeys = gears.table.join(
               {description = "open a color picker", group = "launcher"}),
     awful.key({ modkey,           }, "p", function () awful.spawn.with_shell(comp_bin .. " --config " .. comp_path) end,
               {description="turn on compositor", group="launcher"}),
-    awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall picom") end,
+    awful.key({ modkey, "Shift"   }, "p", function () awful.spawn.with_shell("killall " .. comp_bin) end,
               {description="turn off compositor", group="launcher"}),
     awful.key({ altkey, "Control"   }, "l", function() awful.spawn("awesome-client '_G.show_lockscreen()'", false) end,
               {description="lock the screen", group="launcher"}),

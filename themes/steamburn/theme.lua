@@ -1,7 +1,9 @@
-local awful = require("awful")
 local dpi   = require("beautiful.xresources").apply_dpi
 
 local theme                                     = {}
+
+theme.icon_theme = "Gruvbox-Material-Dark"
+
 theme.zenburn_dir                               = require("awful.util").get_themes_dir() .. "zenburn"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/steamburn"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
@@ -9,9 +11,9 @@ theme.font                                      = "Terminus 10.5"
 theme.fg_normal                                 = "#e2ccb0"
 theme.fg_focus                                  = "#d88166"
 theme.fg_urgent                                 = "#CC9393"
-theme.bg_normal                                 = "#140c0b"
-theme.bg_focus                                  = "#140c0b"
-theme.bg_urgent                                 = "#2a1f1e"
+theme.bg_normal                                 = "#140c0b80"
+theme.bg_focus                                  = "#140c0b80"
+theme.bg_urgent                                 = "#2a1f1e80"
 theme.border_width                              = dpi(1)
 theme.border_normal                             = "#302627"
 theme.border_focus                              = "#c2745b"
