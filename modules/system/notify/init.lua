@@ -13,7 +13,8 @@ naughty.connect_signal("request::display", function(n)
             {
                 {
                     naughty.widget.icon,
-                    widget = wibox.container.background,
+                    margins = 5,
+                    widget = wibox.container.margin,
                 },
                 layout = wibox.layout.align.vertical,
             },
@@ -29,10 +30,10 @@ naughty.connect_signal("request::display", function(n)
                     },
                     layout = wibox.layout.align.vertical,
                 },
-                margins = 5,
+                margins = 10,
                 widget = wibox.container.margin,
             },
-            layout = wibox.layout.align.vertical,
+            layout = wibox.layout.align.horizontal,
         }
         
     }

@@ -7,7 +7,15 @@ local function copy_to_clipboard(image_path)
     awful.spawn.easy_async_with_shell(cmd)
 end
 
+
+local function create_screenshots_directory()
+    local screenshots_path = os.getenv("HOME") .. "/Pictures/screenshots"
+    awful.util.mkdir(screenshots_path)
+end
+
 function scrot_full()
+
+    create_screenshots_directory()
 
     local unique_id = tostring(math.random(1000))
     local timestamp = os.date("%F_%T") .. ("_") .. unique_id
@@ -42,6 +50,8 @@ end
 
 function scrot_window()
 
+    create_screenshots_directory()
+
     local unique_id = tostring(math.random(1000))
     local timestamp = os.date("%F_%T") .. ("_") .. unique_id
     local screenshot_path = os.getenv("HOME") .. "/Pictures/screenshots/" .. timestamp .. ".png"
@@ -73,6 +83,8 @@ function scrot_window()
 end
 
 function scrot_selection()
+
+    create_screenshots_directory()
 
     local unique_id = tostring(math.random(1000))
     local timestamp = os.date("%F_%T") .. ("_") .. unique_id
@@ -113,6 +125,8 @@ function scrot_selection()
 end
 
 function scrot_delay()
+
+    create_screenshots_directory()
 
     local unique_id = tostring(math.random(1000))
     local timestamp = os.date("%F_%T") .. ("_") .. unique_id
