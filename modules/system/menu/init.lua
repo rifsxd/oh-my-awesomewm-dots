@@ -9,7 +9,7 @@ require("system.screenshot")
 local freedesktop = require("freedesktop")
 require("system.theming")
 require("system.wallpaper")
-require("system.var")
+require("system.alphavar")
 
 function runpromt()
    menubar.show()

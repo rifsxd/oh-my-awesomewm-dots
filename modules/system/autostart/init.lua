@@ -1,5 +1,5 @@
 local awful = require("awful")
-require("system.var")
+require("system.alphavar")
 
 function killProcess(processName)
     os.execute('killall ' .. processName)

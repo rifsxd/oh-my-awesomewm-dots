@@ -6,7 +6,7 @@ require("system.screenshot")
 local menubar = require("menubar")
 require("system.scrhpad")
 require('system.lockscreen')
-require("system.var")
+require("system.alphavar")
 
 globalkeys = gears.table.join(
     awful.key({ modkey }, "v", function () awful.spawn("pavucontrol") end,
