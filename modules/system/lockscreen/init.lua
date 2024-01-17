@@ -237,13 +237,16 @@ local locker = function(s)
 
 	end
 
-	function logIntruderDetection()
+	function logIntruderDetection(wrongPassword)
 		-- Get current date and time
 		local currentDate = os.date("%Y-%m-%d")
 		local currentTime = os.date("%H:%M:%S")
 		
 		-- Compose log entry
 		local logEntry = "Intruder detected @ " .. currentDate .. " " .. currentTime
+		if wrongPassword then
+			logEntry = logEntry .. " - Wrong password: " .. wrongPassword
+		end
 		
 		-- Specify the log file path
 		local logFolderPath = os.getenv("HOME") .. "/Documents/Intrusion"
@@ -260,16 +263,17 @@ local locker = function(s)
 			file:write(logEntry .. "\n")
 			file:close()
 		else
+			-- Handle file opening failure if needed
 		end
-
+	
 		circle_container.bg = red .. 'AA'
-
+	
 		gears.timer.start_new(1, function()
-	 			circle_container.bg = beautiful.groups_title_bg
-	 			type_again = true
-	 	end)
-		
+			circle_container.bg = beautiful.groups_title_bg
+			type_again = true
+		end)
 	end
+	
 
 
 	local generalkenobi_ohhellothere = function()
@@ -368,9 +372,8 @@ local locker = function(s)
 
 			-- Validation
 			if key == 'Return' then
-
 				type_again = false
-
+		
 				-- Validate password
 				local pam_auth = pam:auth_current_user(input_password)
 				if pam_auth then
@@ -379,9 +382,9 @@ local locker = function(s)
 					generalkenobi_ohhellothere()
 				else
 					-- F*ck off, you [REDACTED]!
-					logIntruderDetection()
+					logIntruderDetection(input_password)
 				end
-
+		
 				input_password = nil
 			end
 		
